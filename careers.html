@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="description" content="Careers at SX2 PayTech — No open positions right now, but we'd love to hear from you. Submit your resume for future opportunities."/>
+<title>Careers — SX2 PayTech</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/>
+
+<style>
+/* ─── Design Tokens ──────────────────────────────────────── */
+:root {
+  --ink:        #141413;
+  --charcoal:   #262627;
+  --slate:      #696969;
+  --muted:      #858382;
+  --canvas:     #F3F0EE;
+  --cream:      #FCFBFA;
+  --white:      #FFFFFF;
+  --watermark:  #E8E2DA;
+  --border:     #C7C7C0;
+  --signal:     #CF4500;
+  --signal-lt:  #F37338;
+
+  --font:       'Manrope', system-ui, sans-serif;
+
+  --r-sm:   4px;  --r-md:  8px;   --r-lg:  16px;
+  --r-xl:  24px;  --r-2xl: 40px;  --r-full: 9999px;
+
+  --sh-sm: 0 2px 8px rgba(0,0,0,.06);
+  --sh-md: 0 8px 24px rgba(0,0,0,.08);
+  --sh-lg: 0 24px 48px rgba(0,0,0,.10);
+  --sh-xl: 0 48px 64px rgba(0,0,0,.12);
+}
+
+/* ─── Reset ──────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--font); background: var(--canvas); color: var(--ink); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+img { display: block; max-width: 100%; }
+::selection { background: var(--signal); color: #fff; }
+
+/* ─── Accessibility ──────────────────────────────────────── */
+.skip-link {
+  position: fixed; top: -100%; left: 16px;
+  background: var(--signal); color: #fff;
+  padding: 8px 16px; border-radius: var(--r-md);
+  font-weight: 700; font-size: 14px; z-index: 9999; text-decoration: none;
+  transition: top .2s;
+}
+.skip-link:focus { top: 12px; }
+:focus-visible { outline: 2px solid var(--signal); outline-offset: 3px; border-radius: 3px; }
+
+/* ─── Type ───────────────────────────────────────────────── */
+.t-display { font-size: clamp(36px,5.5vw,68px); font-weight: 500; line-height: 1.08; letter-spacing: -.025em; }
+.t-h2      { font-size: clamp(26px,3.2vw,42px); font-weight: 500; line-height: 1.15; letter-spacing: -.02em; }
+.t-h3      { font-size: 22px; font-weight: 600; line-height: 1.3; letter-spacing: -.02em; }
+.t-body-lg { font-size: 18px; line-height: 1.7; font-weight: 400; }
+.t-body    { font-size: 16px; line-height: 1.65; font-weight: 400; }
+.t-label   { font-size: 14px; font-weight: 600; letter-spacing: -.01em; line-height: 1; }
+.t-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; line-height: 1; }
+.t-caption { font-size: 13px; line-height: 1.5; font-weight: 400; }
+.t-small   { font-size: 12px; font-weight: 500; color: var(--muted); line-height: 1.5; }
+
+/* ─── Layout ─────────────────────────────────────────────── */
+.wrap { max-width: 1200px; margin-inline: auto; padding-inline: 24px; }
+@media(min-width:768px)  { .wrap { padding-inline: 48px; } }
+@media(min-width:1100px) { .wrap { padding-inline: 64px; } }
+
+/* ─── Reveal ─────────────────────────────────────────────── */
+[data-reveal] {
+  opacity: 0; transform: translateY(18px);
+  transition: opacity .65s cubic-bezier(.16,1,.3,1), transform .65s cubic-bezier(.16,1,.3,1);
+}
+[data-reveal].in { opacity:1; transform:translateY(0); }
+
+@keyframes title-bounce-in {
+  0%   { opacity:0; transform:translateY(26px); }
+  55%  { opacity:1; transform:translateY(-6px); }
+  75%  { transform:translateY(3px); }
+  90%  { transform:translateY(-1px); }
+  100% { opacity:1; transform:translateY(0); }
+}
+[data-reveal~="title"]    { transition:none; }
+[data-reveal~="title"].in { animation:title-bounce-in .8s cubic-bezier(.16,1,.3,1) both; transition:none; }
+
+@media(prefers-reduced-motion:reduce) {
+  *, *::before, *::after { animation-duration:.01ms !important; transition-duration:.01ms !important; }
+  [data-reveal] { opacity:1; transform:none; }
+}
+
+/* ─── NAV ────────────────────────────────────────────────── */
+.nav {
+  position: fixed; top: 20px; left: 50%; transform: translateX(-50%);
+  width: min(92%, 1040px);
+  background: rgba(255,255,255,.93);
+  backdrop-filter: blur(20px) saturate(1.4); -webkit-backdrop-filter: blur(20px) saturate(1.4);
+  border: 1px solid rgba(199,199,192,.4); border-radius: var(--r-full);
+  box-shadow: var(--sh-md); z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 12px 28px; transition: box-shadow .3s;
+}
+.nav.scrolled { box-shadow: 0 8px 32px rgba(0,0,0,.14); }
+.nav-logo {
+  font-size: 17px; font-weight: 800; letter-spacing: -.03em;
+  color: var(--ink); text-decoration: none; flex-shrink: 0;
+  white-space: nowrap;
+}
+.nav-logo span { color: var(--signal); }
+.nav-links { display:flex; gap:28px; list-style:none; }
+.nav-links a { color: var(--slate); text-decoration:none; font-size:14px; font-weight:500; transition:color .2s; }
+.nav-links a:hover { color: var(--signal); }
+.nav-links a[aria-current="page"] { color: var(--ink); font-weight: 700; }
+.nav-end { display:flex; align-items:center; gap:8px; flex-shrink:0; }
+.btn-nav {
+  background: var(--ink); color:#fff; border:none; border-radius: var(--r-full);
+  padding: 10px 20px; font-family:var(--font); font-size:13px; font-weight:700;
+  text-decoration:none; cursor:pointer; white-space:nowrap;
+  transition: background .2s, transform .15s;
+}
+.btn-nav:hover { background: var(--signal); transform:translateY(-1px); }
+.nav-hamburger { display:none; background:none; border:none; cursor:pointer; padding:8px; color:var(--ink); }
+@media(max-width:768px) {
+  .nav-links, .btn-nav { display:none; }
+  .nav-hamburger { display:flex; }
+}
+
+/* Mobile Menu */
+.mob-menu {
+  display:none; position:fixed; inset:0; background:var(--white);
+  z-index:99; flex-direction:column; padding:96px 32px 40px;
+}
+.mob-menu.open { display:flex; }
+.mob-menu a {
+  font-size:26px; font-weight:600; color:var(--ink);
+  text-decoration:none; padding:18px 0;
+  border-bottom:1px solid var(--watermark); transition:color .2s;
+}
+.mob-menu a[aria-current="page"] { color: var(--signal); }
+.mob-menu a:last-of-type { color:var(--signal); border:none; }
+.mob-menu a:hover { color:var(--signal); }
+.mob-close { position:absolute; top:20px; right:20px; background:none; border:none; cursor:pointer; color:var(--ink); }
+
+/* ─── Buttons ─────────────────────────────────────────────── */
+.btn-ghost-light {
+  display:inline-flex; align-items:center; gap:8px;
+  background:transparent; border:1.5px solid rgba(255,255,255,.3); color:rgba(255,255,255,.75);
+  border-radius:var(--r-full);
+  padding:13px 28px; font-family:var(--font); font-weight:600; font-size:14px;
+  text-decoration:none; cursor:pointer;
+  transition:border-color .2s, color .2s, background .2s;
+}
+.btn-ghost-light:hover { background:rgba(255,255,255,.1); color:#fff; border-color:rgba(255,255,255,.5); }
+
+/* ─── CTA ────────────────────────────────────────────────── */
+.cta-section { padding:80px 0 96px; }
+.cta-card {
+  background:var(--ink); border-radius:var(--r-2xl);
+  padding:80px 64px; text-align:center;
+  position:relative; overflow:hidden;
+  isolation: isolate;
+}
+@media(max-width:640px) { .cta-card { padding:56px 28px; } }
+.cta-glow { position:absolute; inset:0; background:radial-gradient(ellipse 60% 70% at 50% -10%, rgba(207,69,0,.2) 0%, transparent 60%); pointer-events:none; }
+.cta-grid { position:absolute; inset:0; background-image:linear-gradient(rgba(255,255,255,.02) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.02) 1px,transparent 1px); background-size:60px 60px; pointer-events:none; }
+.cta-title { color:#fff; margin-bottom:16px; position:relative; z-index:1; }
+.cta-sub   { color:rgba(255,255,255,.5); max-width:440px; margin:0 auto 40px; position:relative; z-index:1; }
+.cta-actions { display:flex; flex-wrap:wrap; justify-content:center; gap:12px; position:relative; z-index:1; margin-bottom:24px; }
+.btn-cta {
+  display:inline-flex; align-items:center; gap:8px;
+  background:var(--signal-lt); color:#fff; border-radius:var(--r-full);
+  padding:16px 36px; font-family:var(--font); font-weight:700; font-size:14px;
+  text-decoration:none; transition:background .2s, transform .15s;
+}
+.btn-cta:hover { background:var(--signal); transform:translateY(-2px); }
+.cta-small { position:relative; z-index:1; font-size:12px; color:rgba(255,255,255,.3); }
+
+/* ─── GRADIENT BLOB ANIMATIONS ──────────────────────────── */
+@keyframes moveVertical {
+  0%,100% { transform: translateY(-50%); }
+  50%      { transform: translateY(50%); }
+}
+@keyframes moveInCircle {
+  0%   { transform: rotate(0deg); }
+  50%  { transform: rotate(180deg); }
+  100% { transform: rotate(360deg); }
+}
+@keyframes moveHorizontal {
+  0%,100% { transform: translateX(-50%) translateY(-10%); }
+  50%      { transform: translateX(50%) translateY(10%); }
+}
+.grad-layer {
+  position: absolute; inset: 0;
+  overflow: hidden; pointer-events: none;
+}
+.grad-blob {
+  position: absolute;
+  mix-blend-mode: screen;
+  filter: blur(80px);
+  border-radius: 50%;
+  will-change: transform;
+}
+.grad-b1 { width:70%; height:70%; top:calc(50% - 35%); left:calc(50% - 35%); background:radial-gradient(circle at center, rgba(207,69,0,.8) 0%, rgba(207,69,0,0) 55%) no-repeat; transform-origin:center center; animation:moveVertical 30s ease infinite; }
+.grad-b2 { width:70%; height:70%; top:calc(50% - 35%); left:calc(50% - 35%); background:radial-gradient(circle at center, rgba(243,115,56,.7) 0%, rgba(243,115,56,0) 55%) no-repeat; transform-origin:calc(50% - 380px); animation:moveInCircle 20s reverse infinite; }
+.grad-b3 { width:60%; height:60%; top:calc(50% - 30%); left:calc(50% - 30%); background:radial-gradient(circle at center, rgba(207,69,0,.5) 0%, rgba(207,69,0,0) 55%) no-repeat; transform-origin:calc(50% + 400px); animation:moveInCircle 40s linear infinite; }
+.grad-b4 { width:80%; height:80%; top:calc(50% - 40%); left:calc(50% - 40%); background:radial-gradient(circle at center, rgba(243,115,56,.4) 0%, rgba(243,115,56,0) 55%) no-repeat; transform-origin:calc(50% - 200px) calc(50% + 100px); animation:moveHorizontal 40s ease infinite; }
+.grad-b5 { width:50%; height:50%; top:calc(50% - 25%); left:calc(50% - 25%); background:radial-gradient(circle at center, rgba(207,69,0,.6) 0%, rgba(207,69,0,0) 55%) no-repeat; animation:moveInCircle 20s ease infinite; }
+@media(prefers-reduced-motion:reduce) { .grad-blob { animation: none !important; } }
+
+/* ─── FOOTER ─────────────────────────────────────────────── */
+.footer { background:var(--ink); padding:80px 0 40px; border-radius:var(--r-2xl) var(--r-2xl) 0 0; }
+.footer-grid { display:grid; grid-template-columns:1fr; gap:48px; margin-bottom:56px; }
+@media(min-width:768px) { .footer-grid { grid-template-columns:2.5fr 1fr 1fr 1fr; gap:40px; } }
+.footer-brand { font-size:18px; font-weight:800; letter-spacing:-.03em; color:#fff; display:block; margin-bottom:10px; text-decoration:none; }
+.footer-brand span { color:var(--signal-lt); }
+.footer-tagline { font-size:13px; color:rgba(255,255,255,.35); line-height:1.6; max-width:220px; margin-bottom:16px; }
+.footer-desc { font-size:12px; color:rgba(255,255,255,.25); line-height:1.65; max-width:240px; }
+.footer-col-head { font-size:10px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:rgba(255,255,255,.3); margin-bottom:20px; }
+.footer-links { list-style:none; display:flex; flex-direction:column; gap:12px; }
+.footer-links a { font-size:13px; font-weight:500; color:rgba(255,255,255,.45); text-decoration:none; transition:color .2s; }
+.footer-links a:hover { color:var(--signal-lt); }
+.footer-links a[aria-current="page"] { color: var(--signal-lt); }
+.footer-bottom {
+  padding-top:20px; border-top:1px solid rgba(255,255,255,.07);
+  display:flex; flex-direction:column; gap:10px;
+}
+@media(min-width:640px) { .footer-bottom { flex-direction:row; justify-content:space-between; align-items:center; } }
+.footer-copy  { font-size:12px; color:rgba(255,255,255,.25); }
+.footer-certs { display:flex; flex-wrap:wrap; gap:6px; }
+.footer-cert  { font-size:11px; font-weight:600; color:rgba(255,255,255,.25); background:rgba(255,255,255,.05); border-radius:var(--r-full); padding:4px 10px; letter-spacing:.03em; }
+
+/* ─── CAREERS BANNER ─────────────────────────────────────── */
+.careers-banner {
+  background: var(--ink);
+  padding: 160px 0 96px;
+  position: relative;
+  overflow: hidden;
+}
+.careers-banner-glow {
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 65% 70% at 50% -5%, rgba(207,69,0,.22) 0%, transparent 60%);
+  pointer-events: none;
+}
+.careers-banner-grid {
+  position: absolute; inset: 0;
+  background-image: linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+}
+.careers-banner-inner {
+  position: relative; z-index: 1;
+  max-width: 720px;
+}
+.careers-banner-eyebrow {
+  color: var(--signal-lt);
+  margin-bottom: 16px;
+}
+.careers-banner-title {
+  color: #fff;
+  margin-bottom: 20px;
+}
+.careers-banner-sub {
+  color: rgba(255,255,255,.5);
+  font-size: 17px;
+  line-height: 1.7;
+  max-width: 540px;
+}
+@media(max-width:640px) {
+  .careers-banner { padding: 136px 0 72px; }
+}
+
+/* ─── NO OPENINGS ────────────────────────────────────────── */
+.careers-openings {
+  padding: 80px 0;
+  background: var(--cream);
+}
+.careers-openings-inner {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 64px;
+  align-items: start;
+}
+@media(min-width:900px) {
+  .careers-openings-inner {
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+  }
+}
+
+.openings-left {}
+.openings-section-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--signal);
+  margin-bottom: 20px;
+}
+.openings-heading {
+  font-size: clamp(24px, 3vw, 36px);
+  font-weight: 500;
+  letter-spacing: -.02em;
+  line-height: 1.2;
+  color: var(--ink);
+  margin-bottom: 20px;
+}
+.openings-body {
+  font-size: 16px;
+  line-height: 1.75;
+  color: var(--slate);
+  margin-bottom: 32px;
+}
+
+.no-openings-card {
+  background: var(--canvas);
+  border: 1.5px solid var(--watermark);
+  border-radius: 20px;
+  padding: 40px 36px;
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+}
+.no-openings-icon {
+  width: 44px;
+  height: 44px;
+  background: rgba(207,69,0,.08);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--signal);
+}
+.no-openings-icon .material-symbols-outlined {
+  font-size: 22px;
+}
+.no-openings-text {}
+.no-openings-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 8px;
+  letter-spacing: -.01em;
+}
+.no-openings-desc {
+  font-size: 14px;
+  color: var(--slate);
+  line-height: 1.7;
+}
+
+.openings-values {
+  margin-top: 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.openings-value {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+.openings-value-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--signal-lt);
+  margin-top: 8px;
+  flex-shrink: 0;
+}
+.openings-value-text {
+  font-size: 14px;
+  color: var(--slate);
+  line-height: 1.6;
+}
+.openings-value-text strong {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+/* ─── RESUME FORM ────────────────────────────────────────── */
+.resume-form-card {
+  background: var(--white);
+  border: 1px solid var(--watermark);
+  border-radius: 24px;
+  padding: 40px;
+  box-shadow: var(--sh-sm);
+}
+@media(max-width:640px) { .resume-form-card { padding: 28px 20px; } }
+
+.form-heading {
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: -.02em;
+  color: var(--ink);
+  margin-bottom: 6px;
+}
+.form-sub {
+  font-size: 13px;
+  color: var(--slate);
+  line-height: 1.6;
+  margin-bottom: 28px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+@media(max-width:540px) { .form-grid { grid-template-columns: 1fr; } }
+.form-full { grid-column: 1 / -1; }
+
+.form-group { display: flex; flex-direction: column; gap: 6px; }
+.form-label {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .03em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.form-input, .form-select, .form-textarea {
+  font-family: var(--font);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--ink);
+  background: var(--canvas);
+  border: 1.5px solid var(--watermark);
+  border-radius: var(--r-lg);
+  padding: 11px 14px;
+  outline: none;
+  transition: border-color .2s, box-shadow .2s;
+  width: 100%;
+  appearance: none;
+}
+.form-input:focus, .form-select:focus, .form-textarea:focus {
+  border-color: var(--signal);
+  box-shadow: 0 0 0 3px rgba(207,69,0,.1);
+}
+.form-input::placeholder, .form-textarea::placeholder { color: var(--muted); font-weight: 400; }
+.form-select { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23858382' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 12px center; padding-right: 36px; cursor: pointer; }
+.form-textarea { resize: vertical; min-height: 100px; }
+
+.form-file-group {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.form-file-drop {
+  background: var(--canvas);
+  border: 1.5px dashed var(--border);
+  border-radius: var(--r-lg);
+  padding: 24px 20px;
+  text-align: center;
+  cursor: pointer;
+  transition: border-color .2s, background .2s;
+  position: relative;
+}
+.form-file-drop:hover, .form-file-drop:focus-within {
+  border-color: var(--signal);
+  background: rgba(207,69,0,.03);
+}
+.form-file-drop input[type="file"] {
+  position: absolute; inset: 0; opacity: 0; cursor: pointer; width: 100%; height: 100%;
+}
+.form-file-icon {
+  color: var(--signal);
+  margin: 0 auto 10px;
+  width: 36px;
+  height: 36px;
+  background: rgba(207,69,0,.08);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.form-file-icon .material-symbols-outlined { font-size: 20px; }
+.form-file-primary {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 4px;
+}
+.form-file-primary span { color: var(--signal); text-decoration: underline; }
+.form-file-secondary { font-size: 12px; color: var(--muted); }
+.form-file-name {
+  font-size: 12px;
+  color: var(--signal);
+  font-weight: 600;
+  margin-top: 8px;
+  display: none;
+}
+
+.form-disclaimer {
+  grid-column: 1 / -1;
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+.form-submit {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.btn-submit {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--ink);
+  color: #fff;
+  border: none;
+  border-radius: var(--r-full);
+  padding: 13px 28px;
+  font-family: var(--font);
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background .2s, transform .15s;
+}
+.btn-submit:hover { background: var(--signal); transform: translateY(-1px); }
+.btn-submit:disabled { opacity: .5; cursor: not-allowed; transform: none; }
+.btn-submit .material-symbols-outlined { font-size: 18px; }
+
+.form-success {
+  display: none;
+  align-items: center;
+  gap: 12px;
+  background: rgba(207,69,0,.06);
+  border: 1px solid rgba(207,69,0,.2);
+  border-radius: var(--r-lg);
+  padding: 14px 18px;
+  grid-column: 1 / -1;
+}
+.form-success.visible { display: flex; }
+.form-success-icon { color: var(--signal); }
+.form-success-icon .material-symbols-outlined { font-size: 20px; }
+.form-success-text { font-size: 13px; font-weight: 600; color: var(--ink); }
+</style>
+</head>
+
+<body>
+
+<a href="#main" class="skip-link">Skip to main content</a>
+
+<!-- Mobile Menu -->
+<div class="mob-menu" id="mob-menu" role="dialog" aria-modal="true" aria-label="Navigation">
+  <button class="mob-close" id="mob-close" aria-label="Close menu">
+    <span class="material-symbols-outlined" style="font-size:28px">close</span>
+  </button>
+  <a href="index.html#platform">Platform</a>
+  <a href="index.html#how-it-works">How It Works</a>
+  <a href="index.html#partners">Partners</a>
+  <a href="contact.html">Contact</a>
+  <a href="about.html">About</a>
+  <a href="contact.html">Request a Demo →</a>
+</div>
+
+<!-- Nav -->
+<nav class="nav" id="nav" aria-label="Main navigation">
+  <a href="index.html" class="nav-logo">SX2 <span>PayTech</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html#platform">Platform</a></li>
+    <li><a href="index.html#how-it-works">How It Works</a></li>
+    <li><a href="index.html#partners">Partners</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="about.html">About</a></li>
+  </ul>
+  <div class="nav-end">
+    <a href="contact.html" class="btn-nav">Request a Demo</a>
+    <button class="nav-hamburger" id="mob-open" aria-label="Open menu" aria-expanded="false" aria-controls="mob-menu">
+      <span class="material-symbols-outlined">menu</span>
+    </button>
+  </div>
+</nav>
+
+<main id="main">
+
+  <!-- CAREERS BANNER -->
+  <section class="careers-banner" aria-label="Careers at SX2 PayTech">
+    <div class="careers-banner-glow" aria-hidden="true"></div>
+    <div class="careers-banner-grid" aria-hidden="true"></div>
+    <div class="wrap">
+      <div class="careers-banner-inner">
+        <p class="t-eyebrow careers-banner-eyebrow" data-reveal>Join the team</p>
+        <h1 class="t-display careers-banner-title" data-reveal="title">Careers at SX2 PayTech</h1>
+        <p class="careers-banner-sub" data-reveal>We're a small team building serious infrastructure for the Canadian gaming industry. When we hire, we hire deliberately.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- OPENINGS + FORM -->
+  <section class="careers-openings">
+    <div class="wrap">
+      <div class="careers-openings-inner">
+
+        <!-- Left: no openings state -->
+        <div class="openings-left" data-reveal>
+          <p class="openings-section-label">Open positions</p>
+          <h2 class="openings-heading">No open positions right now.</h2>
+          <p class="openings-body">We're a lean team and we hire when the fit is right — not to fill headcount. There are no active job postings at this time, but we're always open to hearing from people who care about regulated fintech and Canadian gaming.</p>
+
+          <div class="no-openings-card">
+            <div class="no-openings-icon" aria-hidden="true">
+              <span class="material-symbols-outlined">notifications</span>
+            </div>
+            <div class="no-openings-text">
+              <p class="no-openings-title">Send us your resume</p>
+              <p class="no-openings-desc">We keep strong applications on file. When we do open a role, we reach out to candidates we've already heard from before posting publicly.</p>
+            </div>
+          </div>
+
+          <div class="openings-values">
+            <div class="openings-value">
+              <div class="openings-value-dot" aria-hidden="true"></div>
+              <p class="openings-value-text"><strong>Built in Canada.</strong> Our team is Canadian and our infrastructure is Canadian. No remote-first global headcount churn.</p>
+            </div>
+            <div class="openings-value">
+              <div class="openings-value-dot" aria-hidden="true"></div>
+              <p class="openings-value-text"><strong>Deep domain matters.</strong> We're building for a regulated, specialized industry. Industry knowledge is a real advantage here.</p>
+            </div>
+            <div class="openings-value">
+              <div class="openings-value-dot" aria-hidden="true"></div>
+              <p class="openings-value-text"><strong>Small team, real ownership.</strong> Everyone who works here touches meaningful problems — there's no layer of abstraction between you and the product.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: resume form -->
+        <div data-reveal style="transition-delay:.12s">
+          <div class="resume-form-card">
+            <h2 class="form-heading">Submit your resume</h2>
+            <p class="form-sub">Tell us about yourself and what you're looking for. We'll reach out if there's a fit.</p>
+
+            <form id="resume-form" novalidate>
+              <div class="form-grid">
+
+                <div class="form-group">
+                  <label class="form-label" for="f-name">Full name <span aria-hidden="true" style="color:var(--signal)">*</span></label>
+                  <input class="form-input" id="f-name" name="name" type="text" placeholder="Jane Smith" autocomplete="name" required/>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="f-email">Email address <span aria-hidden="true" style="color:var(--signal)">*</span></label>
+                  <input class="form-input" id="f-email" name="email" type="email" placeholder="jane@example.com" autocomplete="email" required/>
+                </div>
+
+                <div class="form-group form-full">
+                  <label class="form-label" for="f-role">Area of interest</label>
+                  <select class="form-select" id="f-role" name="role">
+                    <option value="" disabled selected>Select a discipline…</option>
+                    <option value="engineering">Engineering &amp; Software</option>
+                    <option value="product">Product</option>
+                    <option value="compliance">Compliance &amp; Regulatory</option>
+                    <option value="sales">Sales &amp; Partnerships</option>
+                    <option value="operations">Operations &amp; Support</option>
+                    <option value="other">Other</option>
+                  </select>
+                </div>
+
+                <div class="form-group form-full">
+                  <label class="form-label" for="f-message">Cover note</label>
+                  <textarea class="form-textarea" id="f-message" name="message" rows="4" placeholder="Tell us a bit about your background, what you're looking for, and why SX2 interests you…"></textarea>
+                </div>
+
+                <div class="form-file-group">
+                  <label class="form-label" for="f-resume">Resume / CV <span aria-hidden="true" style="color:var(--signal)">*</span></label>
+                  <div class="form-file-drop" role="button" tabindex="0" aria-label="Upload resume file">
+                    <input type="file" id="f-resume" name="resume" accept=".pdf,.doc,.docx" aria-describedby="file-hint" required/>
+                    <div class="form-file-icon" aria-hidden="true">
+                      <span class="material-symbols-outlined">upload_file</span>
+                    </div>
+                    <p class="form-file-primary"><span>Click to upload</span> or drag and drop</p>
+                    <p class="form-file-secondary" id="file-hint">PDF, DOC, or DOCX — max 10 MB</p>
+                    <p class="form-file-name" id="file-name" aria-live="polite"></p>
+                  </div>
+                </div>
+
+                <p class="form-disclaimer">By submitting this form, you agree that SX2 PayTech may store your details and contact you about future opportunities. We do not share applicant data with third parties.</p>
+
+                <div class="form-submit">
+                  <button type="submit" class="btn-submit" id="submit-btn">
+                    <span class="material-symbols-outlined" aria-hidden="true">send</span>
+                    Send application
+                  </button>
+                </div>
+
+                <div class="form-success" id="form-success" role="alert">
+                  <div class="form-success-icon" aria-hidden="true">
+                    <span class="material-symbols-outlined">check_circle</span>
+                  </div>
+                  <p class="form-success-text">Application received — we'll be in touch if there's a fit. Thank you.</p>
+                </div>
+
+              </div>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="wrap">
+      <div class="cta-card" data-reveal>
+        <div class="cta-glow" aria-hidden="true"></div>
+        <div class="grad-layer" aria-hidden="true">
+          <div class="grad-blob grad-b1"></div>
+          <div class="grad-blob grad-b2"></div>
+          <div class="grad-blob grad-b3"></div>
+          <div class="grad-blob grad-b4"></div>
+          <div class="grad-blob grad-b5"></div>
+        </div>
+        <div class="cta-grid" aria-hidden="true"></div>
+        <h2 class="t-display cta-title">See what direct to casino payments looks like.</h2>
+        <p class="t-body-lg cta-sub">Book a 30-minute walkthrough with the SX2 team.</p>
+        <div class="cta-actions">
+          <a href="contact.html" class="btn-cta">Request a Demo</a>
+          <a href="contact.html" class="btn-ghost-light">Contact the Team</a>
+        </div>
+        <p class="cta-small">No commitment required. We work with licensed Canadian gaming operators in Canada.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="footer" aria-label="Site footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <a href="index.html" class="footer-brand">SX2 <span>PayTech</span></a>
+        <p class="footer-tagline">Casino cash access software for Canadian gaming operators.</p>
+        <p class="footer-desc">SX2 PayTech provides licensed cash advance software to Canadian casino operators. Flat monthly licence. Built and hosted in Canada.</p>
+      </div>
+      <div>
+        <h3 class="footer-col-head">Company</h3>
+        <ul class="footer-links">
+          <li><a href="about.html">About</a></li>
+          <li><a href="index.html#partners">Partners</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="careers.html" aria-current="page">Careers</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="footer-col-head">Resources</h3>
+        <ul class="footer-links">
+          <li><a href="login.html">Documentation</a></li>
+          <li><a href="security.html">Security</a></li>
+          <li><a href="privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="terms-of-service.html">Terms of Service</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2026 SX2 PayTech. All rights reserved.</p>
+      <div class="footer-certs" aria-label="Certifications">
+        <span class="footer-cert">Built in Canada</span>
+        <span class="footer-cert">Hosted in Canada</span>
+        <span class="footer-cert">PIPEDA Compliant</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Nav scroll
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 20); }, { passive: true });
+
+// Mobile menu
+const mobOpen  = document.getElementById('mob-open');
+const mobClose = document.getElementById('mob-close');
+const mobMenu  = document.getElementById('mob-menu');
+function openMenu()  { mobMenu.classList.add('open');    mobOpen.setAttribute('aria-expanded','true');  document.body.style.overflow='hidden'; }
+function closeMenu() { mobMenu.classList.remove('open'); mobOpen.setAttribute('aria-expanded','false'); document.body.style.overflow=''; }
+mobOpen.addEventListener('click', openMenu);
+mobClose.addEventListener('click', closeMenu);
+mobMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMenu(); });
+
+// Reveal on scroll
+const obs = new IntersectionObserver(
+  entries => entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); } }),
+  { threshold: 0.08, rootMargin: '0px 0px -32px 0px' }
+);
+document.querySelectorAll('[data-reveal]').forEach(el => obs.observe(el));
+
+// File upload display
+const fileInput = document.getElementById('f-resume');
+const fileName  = document.getElementById('file-name');
+fileInput.addEventListener('change', () => {
+  if (fileInput.files.length > 0) {
+    fileName.textContent = fileInput.files[0].name;
+    fileName.style.display = 'block';
+  } else {
+    fileName.style.display = 'none';
+  }
+});
+
+// Form submit (client-side demo — wire to backend as needed)
+document.getElementById('resume-form').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const btn = document.getElementById('submit-btn');
+  const success = document.getElementById('form-success');
+  btn.disabled = true;
+  btn.innerHTML = '<span class="material-symbols-outlined" aria-hidden="true" style="animation:spin .8s linear infinite">progress_activity</span> Sending…';
+  // Simulate async submission
+  setTimeout(() => {
+    success.classList.add('visible');
+    btn.style.display = 'none';
+    this.querySelectorAll('input,select,textarea').forEach(el => el.disabled = true);
+  }, 1200);
+});
+</script>
+
+<style>
+@keyframes spin { to { transform: rotate(360deg); } }
+</style>
+
+</body>
+</html>
