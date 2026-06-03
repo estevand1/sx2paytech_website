@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>SX2 PayTech — Brand Guidelines</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+/* ─── Tokens ─────────────────────────────────────────────── */
+:root {
+  --ink:        #141413;
+  --charcoal:   #262627;
+  --slate:      #696969;
+  --muted:      #858382;
+  --canvas:     #F3F0EE;
+  --cream:      #FCFBFA;
+  --white:      #FFFFFF;
+  --watermark:  #E8E2DA;
+  --border:     #C7C7C0;
+  --signal:     #CF4500;
+  --signal-lt:  #F37338;
+  --font:       'Manrope', system-ui, sans-serif;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: var(--font); background: var(--white); color: var(--ink); -webkit-font-smoothing: antialiased; }
+:focus-visible { outline: 2px solid var(--signal); outline-offset: 3px; }
+
+/* ─── Layout ─────────────────────────────────────────────── */
+.wrap { max-width: 1100px; margin-inline: auto; padding-inline: 40px; }
+@media(max-width:640px) { .wrap { padding-inline: 20px; } }
+section { padding: 80px 0; border-bottom: 1px solid var(--border); }
+section:last-child { border-bottom: none; }
+
+/* ─── COVER ──────────────────────────────────────────────── */
+.cover {
+  background: var(--ink); min-height: 480px;
+  display: flex; flex-direction: column; justify-content: flex-end;
+  padding: 64px 40px; position: relative; overflow: hidden;
+}
+.cover-grid {
+  position: absolute; inset: 0;
+  background-image: linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+.cover-glow {
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 60% 60% at 5% 100%, rgba(207,69,0,.25) 0%, transparent 60%);
+}
+.cover-inner { position: relative; z-index: 1; max-width: 1100px; margin-inline: auto; width: 100%; }
+.cover-eyebrow { font-size: 12px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.4); margin-bottom: 16px; }
+.cover-title { font-size: clamp(48px,7vw,96px); font-weight: 800; letter-spacing: -.04em; line-height: 1; color: #fff; margin-bottom: 12px; }
+.cover-title span { color: var(--signal-lt); }
+.cover-sub { font-size: 18px; color: rgba(255,255,255,.45); font-weight: 400; }
+.cover-meta { margin-top: 32px; font-size: 13px; color: rgba(255,255,255,.25); }
+
+/* ─── Headings ───────────────────────────────────────────── */
+.section-label { font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--signal); margin-bottom: 8px; }
+.section-title { font-size: 36px; font-weight: 700; letter-spacing: -.03em; color: var(--ink); margin-bottom: 8px; }
+.section-desc { font-size: 16px; color: var(--slate); line-height: 1.65; max-width: 560px; margin-bottom: 48px; }
+
+/* ─── IDENTITY ───────────────────────────────────────────── */
+.identity-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+@media(max-width:640px) { .identity-grid { grid-template-columns: 1fr; } }
+
+.identity-card {
+  background: var(--canvas); border: 1px solid var(--border);
+  border-radius: 20px; padding: 40px;
+}
+.identity-card.dark { background: var(--ink); }
+.logo-display-light { font-size: 56px; font-weight: 800; letter-spacing: -.06em; color: var(--ink); }
+.logo-display-dark  { font-size: 56px; font-weight: 800; letter-spacing: -.06em; color: #fff; }
+.identity-card-label { font-size: 12px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: .08em; margin-top: 24px; }
+.identity-card.dark .identity-card-label { color: rgba(255,255,255,.3); }
+
+.tagline-card {
+  background: var(--canvas); border: 1px solid var(--border);
+  border-radius: 20px; padding: 40px; grid-column: span 2;
+}
+@media(max-width:640px) { .tagline-card { grid-column: span 1; } }
+.tagline-text { font-size: clamp(20px,3vw,32px); font-weight: 500; letter-spacing: -.02em; color: var(--ink); line-height: 1.3; }
+.tagline-text em { color: var(--signal); font-style: normal; }
+
+/* ─── COLORS ─────────────────────────────────────────────── */
+.colors-primary { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px,1fr)); gap: 16px; margin-bottom: 32px; }
+.colors-secondary { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px,1fr)); gap: 12px; }
+
+.swatch {
+  border-radius: 16px; overflow: hidden;
+  border: 1px solid rgba(0,0,0,.06);
+  box-shadow: 0 2px 8px rgba(0,0,0,.05);
+}
+.swatch-color { height: 100px; }
+.swatch-info { padding: 14px 16px; background: #fff; }
+.swatch-name { font-size: 14px; font-weight: 600; color: var(--ink); margin-bottom: 4px; }
+.swatch-hex  { font-size: 12px; color: var(--muted); font-family: monospace; letter-spacing: .02em; }
+.swatch-use  { font-size: 11px; color: var(--muted); margin-top: 6px; line-height: 1.4; }
+.swatch-sm .swatch-color { height: 60px; }
+.swatch-sm .swatch-info { padding: 10px 12px; }
+.swatch-sm .swatch-name { font-size: 12px; }
+.swatch-sm .swatch-hex  { font-size: 11px; }
+
+.color-rule {
+  background: var(--canvas); border: 1px solid var(--border);
+  border-radius: 12px; padding: 20px 24px;
+  font-size: 14px; color: var(--slate); line-height: 1.6;
+}
+.color-rule + .color-rule { margin-top: 8px; }
+.color-rule strong { color: var(--ink); font-weight: 600; }
+
+/* ─── TYPOGRAPHY ─────────────────────────────────────────── */
+.type-scale { display: flex; flex-direction: column; gap: 0; }
+.type-row {
+  display: grid; grid-template-columns: 120px 1fr;
+  align-items: baseline; gap: 24px;
+  padding: 20px 0; border-bottom: 1px solid var(--border);
+}
+.type-row:last-child { border-bottom: none; }
+.type-meta { }
+.type-meta-name { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); }
+.type-meta-spec { font-size: 11px; color: var(--muted); margin-top: 4px; line-height: 1.5; font-family: monospace; }
+.type-sample { color: var(--ink); }
+
+.weight-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px,1fr)); gap: 16px; margin-top: 48px; }
+.weight-card {
+  background: var(--canvas); border: 1px solid var(--border);
+  border-radius: 12px; padding: 24px;
+}
+.weight-sample { font-size: 32px; color: var(--ink); line-height: 1; margin-bottom: 12px; }
+.weight-label { font-size: 12px; color: var(--muted); font-weight: 600; text-transform: uppercase; letter-spacing: .08em; }
+.weight-num { font-size: 11px; color: var(--muted); font-family: monospace; }
+
+/* ─── SPACING ────────────────────────────────────────────── */
+.spacing-grid { display: flex; flex-direction: column; gap: 8px; }
+.spacing-row {
+  display: grid; grid-template-columns: 80px 1fr 100px;
+  align-items: center; gap: 16px; padding: 8px 0;
+}
+.spacing-bar-wrap { display: flex; align-items: center; }
+.spacing-bar { height: 8px; background: var(--ink); border-radius: 4px; }
+.spacing-token { font-size: 12px; font-family: monospace; color: var(--muted); }
+.spacing-px { font-size: 13px; font-weight: 600; color: var(--ink); text-align: right; }
+
+/* ─── COMPONENTS ─────────────────────────────────────────── */
+.comp-group { margin-bottom: 48px; }
+.comp-group-title { font-size: 14px; font-weight: 700; color: var(--ink); letter-spacing: -.01em; margin-bottom: 20px; padding-bottom: 12px; border-bottom: 1px solid var(--border); }
+.comp-row { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+
+/* Button styles */
+.btn { display: inline-flex; align-items: center; gap: 8px; border: none; cursor: pointer; font-family: var(--font); text-decoration: none; white-space: nowrap; }
+.btn-primary   { background: var(--ink);    color: #fff;      border-radius: 9999px; padding: 12px 24px; font-size: 15px; font-weight: 600; }
+.btn-secondary { background: var(--signal-lt); color: #fff;   border-radius: 9999px; padding: 12px 24px; font-size: 15px; font-weight: 600; }
+.btn-ghost     { background: transparent;   color: var(--ink); border: 1.5px solid var(--ink); border-radius: 9999px; padding: 11px 24px; font-size: 15px; font-weight: 600; }
+.btn-link      { background: transparent;   color: var(--signal); font-size: 15px; font-weight: 600; padding: 4px 0; border-bottom: 1.5px solid currentColor; }
+.btn-sm        { padding: 8px 16px; font-size: 13px; font-weight: 600; }
+
+/* Card styles */
+.card-demo { background: var(--cream); border: 1px solid var(--watermark); border-radius: 20px; padding: 28px; max-width: 320px; }
+.card-demo-dark { background: var(--ink); border: 1px solid rgba(255,255,255,.08); border-radius: 20px; padding: 28px; max-width: 320px; }
+.card-demo-title { font-size: 18px; font-weight: 600; letter-spacing: -.02em; color: var(--ink); margin-bottom: 8px; }
+.card-demo-dark .card-demo-title { color: #fff; }
+.card-demo-body { font-size: 14px; color: var(--slate); line-height: 1.6; }
+.card-demo-dark .card-demo-body { color: rgba(255,255,255,.45); }
+
+/* Pill badge */
+.badge { display: inline-flex; align-items: center; gap: 6px; border-radius: 9999px; padding: 5px 12px; font-size: 12px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
+.badge-default { background: var(--canvas); color: var(--slate); border: 1px solid var(--border); }
+.badge-signal  { background: rgba(207,69,0,.1); color: var(--signal); border: 1px solid rgba(207,69,0,.2); }
+.badge-dark    { background: var(--ink); color: rgba(255,255,255,.7); }
+
+/* Nav pill */
+.nav-demo {
+  background: rgba(255,255,255,.9); backdrop-filter: blur(12px);
+  border: 1px solid rgba(199,199,192,.4); border-radius: 9999px;
+  padding: 12px 28px; display: inline-flex; align-items: center;
+  gap: 32px; box-shadow: 0 4px 20px rgba(0,0,0,.08);
+}
+.nav-demo-logo { font-size: 18px; font-weight: 800; letter-spacing: -.04em; color: var(--ink); }
+.nav-demo-links { display: flex; gap: 24px; }
+.nav-demo-links a { font-size: 14px; font-weight: 500; color: var(--slate); text-decoration: none; }
+.nav-demo-links a.active { color: var(--signal); }
+.nav-demo-btn { background: var(--ink); color: #fff; border-radius: 9999px; padding: 8px 18px; font-size: 13px; font-weight: 600; }
+
+/* ─── PHOTOGRAPHY ────────────────────────────────────────── */
+.photo-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; }
+@media(max-width:640px) { .photo-grid { grid-template-columns: 1fr; } }
+.photo-card { border-radius: 16px; overflow: hidden; background: var(--canvas); border: 1px solid var(--border); }
+.photo-card-top { height: 180px; display: flex; align-items: center; justify-content: center; background: var(--charcoal); }
+.photo-card-thumb { width: 100%; height: 100%; object-fit: cover; filter: grayscale(.2); }
+.photo-card-info { padding: 16px 20px; }
+.photo-card-title { font-size: 14px; font-weight: 600; color: var(--ink); margin-bottom: 6px; }
+.photo-card-desc { font-size: 13px; color: var(--slate); line-height: 1.5; }
+.photo-card-do { border-top: 3px solid #22c55e; }
+.photo-card-dont { border-top: 3px solid #ef4444; }
+
+/* ─── VOICE ──────────────────────────────────────────────── */
+.voice-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+@media(max-width:640px) { .voice-grid { grid-template-columns: 1fr; } }
+.voice-card { background: var(--canvas); border: 1px solid var(--border); border-radius: 16px; padding: 28px; }
+.voice-principle { font-size: 18px; font-weight: 700; letter-spacing: -.02em; color: var(--ink); margin-bottom: 8px; }
+.voice-desc { font-size: 14px; color: var(--slate); line-height: 1.65; }
+
+.copy-examples { display: flex; flex-direction: column; gap: 12px; margin-top: 40px; }
+.copy-example { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+@media(max-width:640px) { .copy-example { grid-template-columns: 1fr; } }
+.copy-do, .copy-dont {
+  border-radius: 12px; padding: 20px 24px;
+  font-size: 15px; line-height: 1.55;
+}
+.copy-do { background: rgba(34,197,94,.06); border: 1px solid rgba(34,197,94,.2); color: var(--ink); }
+.copy-dont { background: rgba(239,68,68,.06); border: 1px solid rgba(239,68,68,.2); color: var(--ink); }
+.copy-do::before   { content: "DO  "; font-size: 11px; font-weight: 700; letter-spacing: .08em; color: #16a34a; display: block; margin-bottom: 8px; }
+.copy-dont::before { content: "DON'T"; font-size: 11px; font-weight: 700; letter-spacing: .08em; color: #dc2626; display: block; margin-bottom: 8px; }
+
+/* ─── DONTS ──────────────────────────────────────────────── */
+.donts-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px,1fr)); gap: 16px; }
+.dont-card { background: rgba(239,68,68,.04); border: 1px solid rgba(239,68,68,.15); border-radius: 16px; padding: 24px; }
+.dont-icon { font-size: 24px; margin-bottom: 12px; }
+.dont-title { font-size: 15px; font-weight: 700; color: var(--ink); margin-bottom: 6px; }
+.dont-desc { font-size: 13px; color: var(--slate); line-height: 1.5; }
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<div class="cover">
+  <div class="cover-grid"></div>
+  <div class="cover-glow"></div>
+  <div class="cover-inner">
+    <div class="cover-eyebrow">Brand Guidelines — 2024</div>
+    <h1 class="cover-title">SX2 <span>PayTech</span></h1>
+    <p class="cover-sub">Brand identity, color system, typography, and usage guidelines.</p>
+    <p class="cover-meta">Version 1.0 &mdash; For internal and partner use only.</p>
+  </div>
+</div>
+
+<!-- TABLE OF CONTENTS -->
+<section style="background:var(--canvas); padding:48px 0;">
+  <div class="wrap">
+    <p class="section-label">Contents</p>
+    <nav aria-label="Brand guidelines sections">
+      <ol style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:8px;list-style:none;counter-reset:toc;">
+        <li style="counter-increment:toc;"><a href="#identity" style="text-decoration:none;color:var(--ink);font-size:15px;font-weight:500;display:flex;gap:12px;align-items:baseline;"><span style="font-size:11px;color:var(--muted);font-family:monospace;flex-shrink:0">01</span>Brand Identity</a></li>
+        <li style="counter-increment:toc;"><a href="#colors"   style="text-decoration:none;color:var(--ink);font-size:15px;font-weight:500;display:flex;gap:12px;align-items:baseline;"><span style="font-size:11px;color:var(--muted);font-family:monospace;flex-shrink:0">02</span>Color System</a></li>
+        <li style="counter-increment:toc;"><a href="#type"     style="text-decoration:none;color:var(--ink);font-size:15px;font-weight:500;display:flex;gap:12px;align-items:baseline;"><span style="font-size:11px;color:var(--muted);font-family:monospace;flex-shrink:0">03</span>Typography</a></li>
+        <li style="counter-increment:toc;"><a href="#spacing"  style="text-decoration:none;color:var(--ink);font-size:15px;font-weight:500;display:flex;gap:12px;align-items:baseline;"><span style="font-size:11px;color:var(--muted);font-family:monospace;flex-shrink:0">04</span>Spacing</a></li>
+        <li style="counter-increment:toc;"><a href="#components" style="text-decoration:none;color:var(--ink);font-size:15px;font-weight:500;display:flex;gap:12px;align-items:baseline;"><span style="font-size:11px;color:var(--muted);font-family:monospace;flex-shrink:0">05</span>Components</a></li>
+        <li style="counter-increment:toc;"><a href="#photography" style="text-decoration:none;color:var(--ink);font-size:15px;font-weight:500;display:flex;gap:12px;align-items:baseline;"><span style="font-size:11px;color:var(--muted);font-family:monospace;flex-shrink:0">06</span>Photography</a></li>
+        <li style="counter-increment:toc;"><a href="#voice"    style="text-decoration:none;color:var(--ink);font-size:15px;font-weight:500;display:flex;gap:12px;align-items:baseline;"><span style="font-size:11px;color:var(--muted);font-family:monospace;flex-shrink:0">07</span>Voice &amp; Tone</a></li>
+        <li style="counter-increment:toc;"><a href="#donts"    style="text-decoration:none;color:var(--ink);font-size:15px;font-weight:500;display:flex;gap:12px;align-items:baseline;"><span style="font-size:11px;color:var(--muted);font-family:monospace;flex-shrink:0">08</span>Don'ts</a></li>
+      </ol>
+    </nav>
+  </div>
+</section>
+
+<!-- 01 IDENTITY -->
+<section id="identity">
+  <div class="wrap">
+    <p class="section-label">01 — Brand Identity</p>
+    <h2 class="section-title">Who we are</h2>
+    <p class="section-desc">SX2 PayTech provides enterprise payment infrastructure — the backbone that connects businesses to every payment method, currency, and market on earth.</p>
+
+    <div class="identity-grid">
+      <!-- Light logo -->
+      <div class="identity-card">
+        <div class="logo-display-light">SX2</div>
+        <div class="identity-card-label">On light — Ink Black</div>
+      </div>
+      <!-- Dark logo -->
+      <div class="identity-card dark">
+        <div class="logo-display-dark">SX2</div>
+        <div class="identity-card-label">On dark — White</div>
+      </div>
+      <!-- Tagline -->
+      <div class="tagline-card">
+        <p style="font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:16px;">Tagline</p>
+        <p class="tagline-text">
+          Infrastructure for <em>every payment,</em> everywhere.
+        </p>
+      </div>
+    </div>
+
+    <div style="margin-top:48px;display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px;">
+      <div style="background:var(--canvas);border:1px solid var(--border);border-radius:16px;padding:28px;">
+        <p style="font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:12px;">Mission</p>
+        <p style="font-size:15px;color:var(--ink);line-height:1.65;">Eliminate the complexity of global payment infrastructure so enterprise businesses can move money to every market with confidence.</p>
+      </div>
+      <div style="background:var(--canvas);border:1px solid var(--border);border-radius:16px;padding:28px;">
+        <p style="font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:12px;">Brand Personality</p>
+        <ul style="font-size:15px;color:var(--ink);line-height:2;list-style:none;">
+          <li>Technical precision</li>
+          <li>Global authority</li>
+          <li>Quiet confidence</li>
+          <li>Engineered reliability</li>
+        </ul>
+      </div>
+      <div style="background:var(--canvas);border:1px solid var(--border);border-radius:16px;padding:28px;">
+        <p style="font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:12px;">Brand Values</p>
+        <ul style="font-size:15px;color:var(--ink);line-height:2;list-style:none;">
+          <li>Reliability</li>
+          <li>Scale</li>
+          <li>Intelligence</li>
+          <li>Transparency</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 02 COLORS -->
+<section id="colors">
+  <div class="wrap">
+    <p class="section-label">02 — Color System</p>
+    <h2 class="section-title">Color palette</h2>
+    <p class="section-desc">The palette is built on warm neutrals anchored by a distinctive signal orange. Use color to communicate hierarchy, not decoration.</p>
+
+    <p style="font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:16px;">Brand Colors</p>
+    <div class="colors-primary">
+      <div class="swatch">
+        <div class="swatch-color" style="background:#141413;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Ink Black</div>
+          <div class="swatch-hex">#141413</div>
+          <div class="swatch-use">Primary text, buttons, logo, footer</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#CF4500;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Signal Orange</div>
+          <div class="swatch-hex">#CF4500</div>
+          <div class="swatch-use">Primary accent, links, highlights</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#F37338;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Signal Orange (Light)</div>
+          <div class="swatch-hex">#F37338</div>
+          <div class="swatch-use">Hover states, CTA buttons, interactive</div>
+        </div>
+      </div>
+    </div>
+
+    <p style="font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin:32px 0 16px;">Neutrals</p>
+    <div class="colors-secondary">
+      <div class="swatch swatch-sm">
+        <div class="swatch-color" style="background:#262627;"></div>
+        <div class="swatch-info"><div class="swatch-name">Charcoal</div><div class="swatch-hex">#262627</div></div>
+      </div>
+      <div class="swatch swatch-sm">
+        <div class="swatch-color" style="background:#696969;"></div>
+        <div class="swatch-info"><div class="swatch-name">Slate Gray</div><div class="swatch-hex">#696969</div></div>
+      </div>
+      <div class="swatch swatch-sm">
+        <div class="swatch-color" style="background:#858382;"></div>
+        <div class="swatch-info"><div class="swatch-name">Muted</div><div class="swatch-hex">#858382</div></div>
+      </div>
+      <div class="swatch swatch-sm">
+        <div class="swatch-color" style="background:#C7C7C0; border:1px solid #eee;"></div>
+        <div class="swatch-info"><div class="swatch-name">Border</div><div class="swatch-hex">#C7C7C0</div></div>
+      </div>
+      <div class="swatch swatch-sm">
+        <div class="swatch-color" style="background:#E8E2DA; border:1px solid #eee;"></div>
+        <div class="swatch-info"><div class="swatch-name">Watermark</div><div class="swatch-hex">#E8E2DA</div></div>
+      </div>
+      <div class="swatch swatch-sm">
+        <div class="swatch-color" style="background:#F3F0EE; border:1px solid #eee;"></div>
+        <div class="swatch-info"><div class="swatch-name">Canvas Cream</div><div class="swatch-hex">#F3F0EE</div></div>
+      </div>
+      <div class="swatch swatch-sm">
+        <div class="swatch-color" style="background:#FCFBFA; border:1px solid #eee;"></div>
+        <div class="swatch-info"><div class="swatch-name">Lifted Cream</div><div class="swatch-hex">#FCFBFA</div></div>
+      </div>
+      <div class="swatch swatch-sm">
+        <div class="swatch-color" style="background:#FFFFFF; border:1px solid #eee;"></div>
+        <div class="swatch-info"><div class="swatch-name">White</div><div class="swatch-hex">#FFFFFF</div></div>
+      </div>
+    </div>
+
+    <div style="margin-top:40px;display:flex;flex-direction:column;gap:10px;">
+      <p style="font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:6px;">Usage Rules</p>
+      <div class="color-rule"><strong>Body text:</strong> Always Ink Black (#141413) on light, White on dark. Never use Signal Orange for running body text.</div>
+      <div class="color-rule"><strong>Signal Orange:</strong> Maximum one accent element per visible screen area. Do not use as background for large surfaces.</div>
+      <div class="color-rule"><strong>Contrast:</strong> Minimum 4.5:1 for body text (WCAG AA). All interactive elements must meet 3:1 against their background.</div>
+      <div class="color-rule"><strong>Cream backgrounds:</strong> Use Canvas Cream (#F3F0EE) for page backgrounds, Lifted Cream (#FCFBFA) for card surfaces. Never reversed.</div>
+    </div>
+  </div>
+</section>
+
+<!-- 03 TYPOGRAPHY -->
+<section id="type">
+  <div class="wrap">
+    <p class="section-label">03 — Typography</p>
+    <h2 class="section-title">Type system</h2>
+    <p class="section-desc">Manrope is the sole typeface. It is geometric, precise, and readable at all weights. The scale uses a ~1.25 modular ratio.</p>
+
+    <div class="type-scale">
+      <div class="type-row">
+        <div class="type-meta">
+          <div class="type-meta-name">Display</div>
+          <div class="type-meta-spec">72px / 500<br/>-0.025em / 1.05</div>
+        </div>
+        <div class="type-sample" style="font-size:clamp(48px,7vw,72px);font-weight:500;letter-spacing:-.025em;line-height:1.05;">SX2 PayTech</div>
+      </div>
+      <div class="type-row">
+        <div class="type-meta">
+          <div class="type-meta-name">H1</div>
+          <div class="type-meta-spec">56px / 500<br/>-0.025em / 1.1</div>
+        </div>
+        <div class="type-sample" style="font-size:clamp(32px,4vw,56px);font-weight:500;letter-spacing:-.025em;line-height:1.1;">Global payment infrastructure</div>
+      </div>
+      <div class="type-row">
+        <div class="type-meta">
+          <div class="type-meta-name">H2</div>
+          <div class="type-meta-spec">44px / 500<br/>-0.02em / 1.15</div>
+        </div>
+        <div class="type-sample" style="font-size:clamp(28px,3.5vw,44px);font-weight:500;letter-spacing:-.02em;line-height:1.15;">A unified global ecosystem.</div>
+      </div>
+      <div class="type-row">
+        <div class="type-meta">
+          <div class="type-meta-name">H3</div>
+          <div class="type-meta-spec">24px / 500<br/>-0.02em / 1.25</div>
+        </div>
+        <div class="type-sample" style="font-size:24px;font-weight:500;letter-spacing:-.02em;line-height:1.25;">Every method. Every market.</div>
+      </div>
+      <div class="type-row">
+        <div class="type-meta">
+          <div class="type-meta-name">Body LG</div>
+          <div class="type-meta-spec">18px / 400<br/>1.65 leading</div>
+        </div>
+        <div class="type-sample" style="font-size:18px;font-weight:400;line-height:1.65;max-width:560px;color:var(--slate);">Our proprietary routing engine dynamically evaluates global pathways in milliseconds, ensuring maximum authorization rates while minimizing fraud.</div>
+      </div>
+      <div class="type-row">
+        <div class="type-meta">
+          <div class="type-meta-name">Body MD</div>
+          <div class="type-meta-spec">16px / 400<br/>1.6 leading</div>
+        </div>
+        <div class="type-sample" style="font-size:16px;font-weight:400;line-height:1.6;max-width:560px;color:var(--slate);">Access the world's most fragmented payment landscapes through a single, elegant integration.</div>
+      </div>
+      <div class="type-row">
+        <div class="type-meta">
+          <div class="type-meta-name">Label</div>
+          <div class="type-meta-spec">15px / 600<br/>-0.02em / 1</div>
+        </div>
+        <div class="type-sample" style="font-size:15px;font-weight:600;letter-spacing:-.02em;line-height:1;">Explore Solutions →</div>
+      </div>
+      <div class="type-row">
+        <div class="type-meta">
+          <div class="type-meta-name">Eyebrow</div>
+          <div class="type-meta-spec">12px / 700<br/>+0.1em / 1<br/>UPPERCASE</div>
+        </div>
+        <div class="type-sample" style="font-size:12px;font-weight:700;letter-spacing:.1em;line-height:1;text-transform:uppercase;color:var(--signal);">AI-Powered Platform</div>
+      </div>
+      <div class="type-row">
+        <div class="type-meta">
+          <div class="type-meta-name">Caption</div>
+          <div class="type-meta-spec">13px / 400<br/>1.5 leading</div>
+        </div>
+        <div class="type-sample" style="font-size:13px;font-weight:400;line-height:1.5;color:var(--muted);">in authorization rates — daily volume optimized</div>
+      </div>
+    </div>
+
+    <!-- Weights -->
+    <div class="weight-grid">
+      <div class="weight-card"><div class="weight-sample" style="font-weight:300;">Ag</div><div class="weight-label">Light</div><div class="weight-num">300</div></div>
+      <div class="weight-card"><div class="weight-sample" style="font-weight:400;">Ag</div><div class="weight-label">Regular</div><div class="weight-num">400</div></div>
+      <div class="weight-card"><div class="weight-sample" style="font-weight:500;">Ag</div><div class="weight-label">Medium</div><div class="weight-num">500</div></div>
+      <div class="weight-card"><div class="weight-sample" style="font-weight:600;">Ag</div><div class="weight-label">SemiBold</div><div class="weight-num">600</div></div>
+      <div class="weight-card"><div class="weight-sample" style="font-weight:700;">Ag</div><div class="weight-label">Bold</div><div class="weight-num">700</div></div>
+      <div class="weight-card"><div class="weight-sample" style="font-weight:800;">Ag</div><div class="weight-label">ExtraBold</div><div class="weight-num">800</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 SPACING -->
+<section id="spacing">
+  <div class="wrap">
+    <p class="section-label">04 — Spacing</p>
+    <h2 class="section-title">Spacing system</h2>
+    <p class="section-desc">All spacing is derived from an 8px base grid. Never use arbitrary values — every gap, padding, and margin maps to a token.</p>
+
+    <div class="spacing-grid">
+      <div class="spacing-row" role="row">
+        <div class="spacing-token">--space-1</div>
+        <div class="spacing-bar-wrap"><div class="spacing-bar" style="width:4px"></div></div>
+        <div class="spacing-px">4px — xs</div>
+      </div>
+      <div class="spacing-row">
+        <div class="spacing-token">--space-2</div>
+        <div class="spacing-bar-wrap"><div class="spacing-bar" style="width:8px"></div></div>
+        <div class="spacing-px">8px — sm</div>
+      </div>
+      <div class="spacing-row">
+        <div class="spacing-token">--space-3</div>
+        <div class="spacing-bar-wrap"><div class="spacing-bar" style="width:12px"></div></div>
+        <div class="spacing-px">12px</div>
+      </div>
+      <div class="spacing-row">
+        <div class="spacing-token">--space-4</div>
+        <div class="spacing-bar-wrap"><div class="spacing-bar" style="width:16px"></div></div>
+        <div class="spacing-px">16px — base</div>
+      </div>
+      <div class="spacing-row">
+        <div class="spacing-token">--space-6</div>
+        <div class="spacing-bar-wrap"><div class="spacing-bar" style="width:24px"></div></div>
+        <div class="spacing-px">24px — md</div>
+      </div>
+      <div class="spacing-row">
+        <div class="spacing-token">--space-8</div>
+        <div class="spacing-bar-wrap"><div class="spacing-bar" style="width:32px"></div></div>
+        <div class="spacing-px">32px</div>
+      </div>
+      <div class="spacing-row">
+        <div class="spacing-token">--space-12</div>
+        <div class="spacing-bar-wrap"><div class="spacing-bar" style="width:48px"></div></div>
+        <div class="spacing-px">48px — lg</div>
+      </div>
+      <div class="spacing-row">
+        <div class="spacing-token">--space-16</div>
+        <div class="spacing-bar-wrap"><div class="spacing-bar" style="width:64px"></div></div>
+        <div class="spacing-px">64px — xl</div>
+      </div>
+      <div class="spacing-row">
+        <div class="spacing-token">--space-24</div>
+        <div class="spacing-bar-wrap"><div class="spacing-bar" style="width:96px"></div></div>
+        <div class="spacing-px">96px — 2xl</div>
+      </div>
+      <div class="spacing-row">
+        <div class="spacing-token">--space-32</div>
+        <div class="spacing-bar-wrap"><div class="spacing-bar" style="width:128px"></div></div>
+        <div class="spacing-px">128px — 3xl</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 05 COMPONENTS -->
+<section id="components">
+  <div class="wrap">
+    <p class="section-label">05 — Components</p>
+    <h2 class="section-title">UI components</h2>
+    <p class="section-desc">Core interactive and structural components. All components use the token system — no one-off values.</p>
+
+    <!-- Buttons -->
+    <div class="comp-group">
+      <div class="comp-group-title">Buttons</div>
+      <div class="comp-row">
+        <a href="#" class="btn btn-primary">Get Started <span style="font-family:'Material Symbols Outlined';font-size:16px;">arrow_forward</span></a>
+        <a href="#" class="btn btn-secondary">Contact Sales</a>
+        <a href="#" class="btn btn-ghost">View Documentation</a>
+        <a href="#" class="btn btn-link">Learn more →</a>
+      </div>
+      <div class="comp-row" style="margin-top:12px;">
+        <a href="#" class="btn btn-primary btn-sm">Small Primary</a>
+        <a href="#" class="btn btn-ghost btn-sm">Small Ghost</a>
+      </div>
+    </div>
+
+    <!-- Badges -->
+    <div class="comp-group">
+      <div class="comp-group-title">Badges &amp; Eyebrows</div>
+      <div class="comp-row">
+        <span class="badge badge-default">Platform</span>
+        <span class="badge badge-signal">AI-Powered</span>
+        <span class="badge badge-dark">Enterprise</span>
+        <span class="badge badge-signal" style="gap:8px;"><span style="width:6px;height:6px;background:currentColor;border-radius:50%;flex-shrink:0;display:inline-block;"></span>Live</span>
+      </div>
+    </div>
+
+    <!-- Cards -->
+    <div class="comp-group">
+      <div class="comp-group-title">Cards</div>
+      <div class="comp-row" style="align-items:flex-start;">
+        <div class="card-demo">
+          <div class="card-demo-title">Unified API</div>
+          <p class="card-demo-body">Single RESTful API surfaces the full network. No per-market SDKs.</p>
+        </div>
+        <div class="card-demo-dark">
+          <div class="card-demo-title">AI Intelligence</div>
+          <p class="card-demo-body">Routing engine evaluates global pathways in milliseconds.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Nav -->
+    <div class="comp-group">
+      <div class="comp-group-title">Navigation (pill)</div>
+      <div class="nav-demo">
+        <span class="nav-demo-logo">SX2</span>
+        <div class="nav-demo-links">
+          <a href="#" class="active">Solutions</a>
+          <a href="#">Infrastructure</a>
+          <a href="#">Markets</a>
+        </div>
+        <span class="nav-demo-btn">Get Started</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 06 PHOTOGRAPHY -->
+<section id="photography">
+  <div class="wrap">
+    <p class="section-label">06 — Photography</p>
+    <h2 class="section-title">Image style</h2>
+    <p class="section-desc">Photography establishes premium enterprise authority. Two modes: dark/technical for infrastructure, warm/human for product.</p>
+
+    <div class="photo-grid">
+      <div class="photo-card photo-card-do">
+        <div class="photo-card-top">
+          <img
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuAx1pK5lUugIISwUMDglaX4QHzZjlhCekBouR_xxCTSZSCzYaN7OUbcpo59cs8l1ObfqfhscPID_5N_Li6rw5kiepWn4ci2ALXWKsXTxc18PjdiNxwVMyj6jXZoqTFJmqRJzvLPw_QzqHRB4O96xcFROj8NMCeC82dl6dxt79A64rnUasK1fJ0s8KkTIn-n_oqfuXXnCuoyVN_w5hksJFFf1lnE7nhhLDb0nsw7VUWm-GWdgzo964zj92nxIRtXS__xSnYHip8mMkU"
+            alt="Dark technical visualization"
+            class="photo-card-thumb"
+            loading="lazy"
+          />
+        </div>
+        <div class="photo-card-info">
+          <div class="photo-card-title" style="color:#16a34a">&#10003; Dark / Technical</div>
+          <p class="photo-card-desc">High contrast, geometric, data visualization. Deep blacks with focused illumination. For hero, infrastructure sections.</p>
+        </div>
+      </div>
+      <div class="photo-card photo-card-do">
+        <div class="photo-card-top">
+          <img
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCtYLAixGSEjCNiIM2KR41lP1hflSoTFSOZVxHSd5eDNJhmW7M6_rXdRHVWiikokVIsMJa2lmjfiYqOR_aYLKMcsimu7CMUWrKON1uifjFZl_NLrlNrsflDAEqfr-XqdvdVRCnbcx9kLDId6muVoSI-QeFrp1_Po_p68NeGSGUH1I1hy6-c6T5fWbZ1-lt0GQiIBrTjNy-xeZgeUdtiAldIsqFuw-LIdYJourxzxxJ_0nNSpYz009Cezz4KZWLcnthmnF9W0tyqjFY"
+            alt="Human product photography"
+            class="photo-card-thumb"
+            loading="lazy"
+          />
+        </div>
+        <div class="photo-card-info">
+          <div class="photo-card-title" style="color:#16a34a">&#10003; Human / Product</div>
+          <p class="photo-card-desc">Warm, natural light. Shallow depth of field. Premium environments. Confident, not posed. For feature sections.</p>
+        </div>
+      </div>
+      <div class="photo-card photo-card-dont">
+        <div class="photo-card-top" style="background:var(--charcoal);display:flex;align-items:center;justify-content:center;">
+          <p style="color:rgba(255,255,255,.3);font-size:13px;font-weight:500;text-align:center;padding:20px;">Flat colorful illustrations<br/>or stock clichés</p>
+        </div>
+        <div class="photo-card-info">
+          <div class="photo-card-title" style="color:#dc2626">&#10007; Avoid</div>
+          <p class="photo-card-desc">No flat illustrations, cartoons, or generic stock photography. No fake diversity-stock "smiling at laptop" shots.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 07 VOICE & TONE -->
+<section id="voice">
+  <div class="wrap">
+    <p class="section-label">07 — Voice &amp; Tone</p>
+    <h2 class="section-title">How we write</h2>
+    <p class="section-desc">SX2 communicates with the precision of engineers and the authority of world-class operators. Every word earns its place.</p>
+
+    <div class="voice-grid">
+      <div class="voice-card">
+        <div class="voice-principle">Precise, not jargon-heavy</div>
+        <p class="voice-desc">Use technical language where it adds clarity. Never use buzzwords to signal sophistication — the work speaks for itself.</p>
+      </div>
+      <div class="voice-card">
+        <div class="voice-principle">Confident, not boastful</div>
+        <p class="voice-desc">State facts and outcomes plainly. Let numbers and specifics carry the argument. Avoid superlatives like "best" or "leading."</p>
+      </div>
+      <div class="voice-card">
+        <div class="voice-principle">Global in scope</div>
+        <p class="voice-desc">Write for enterprise teams across markets, not a single region. Avoid idioms, colloquialisms, and culturally narrow references.</p>
+      </div>
+      <div class="voice-card">
+        <div class="voice-principle">Direct with a clear ask</div>
+        <p class="voice-desc">Every piece of copy knows its next step. CTAs are specific ("Contact Sales", "View Performance Data") — never generic ("Learn More").</p>
+      </div>
+    </div>
+
+    <div class="copy-examples">
+      <div class="copy-example">
+        <div class="copy-do">Infrastructure for every payment, everywhere.</div>
+        <div class="copy-dont">The world's most amazing, cutting-edge payment solution for modern businesses!</div>
+      </div>
+      <div class="copy-example">
+        <div class="copy-do">10% uplift in authorization rates. £1.5M daily volume optimized.</div>
+        <div class="copy-dont">Our AI dramatically improves your payment performance significantly.</div>
+      </div>
+      <div class="copy-example">
+        <div class="copy-do">Access 720+ methods, 150+ currencies, 200+ markets through one API.</div>
+        <div class="copy-dont">We support tons of payment methods in lots of countries globally.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 08 DON'TS -->
+<section id="donts">
+  <div class="wrap">
+    <p class="section-label">08 — Don'ts</p>
+    <h2 class="section-title">What to avoid</h2>
+    <p class="section-desc">Common mistakes that dilute the brand's authority and distinctiveness.</p>
+
+    <div class="donts-grid">
+      <div class="dont-card">
+        <div class="dont-icon">🚫</div>
+        <div class="dont-title">No purple gradients</div>
+        <p class="dont-desc">The brand palette is warm. No blue/purple/teal gradients. Signal orange and warm neutrals only.</p>
+      </div>
+      <div class="dont-card">
+        <div class="dont-icon">🚫</div>
+        <div class="dont-title">No emoji in headers</div>
+        <p class="dont-desc">Never use emoji in headlines or section headings. Reserve for very specific UI contexts (status indicators only).</p>
+      </div>
+      <div class="dont-card">
+        <div class="dont-icon">🚫</div>
+        <div class="dont-title">No all-caps body text</div>
+        <p class="dont-desc">Uppercase is reserved for eyebrows and labels only (12px, tracked out). Never capitalize body or heading copy.</p>
+      </div>
+      <div class="dont-card">
+        <div class="dont-icon">🚫</div>
+        <div class="dont-title">No arbitrary spacing</div>
+        <p class="dont-desc">Every margin, padding, and gap must map to a spacing token. No values like 17px, 23px, or 35px.</p>
+      </div>
+      <div class="dont-card">
+        <div class="dont-icon">🚫</div>
+        <div class="dont-title">No logo modification</div>
+        <p class="dont-desc">Do not stretch, recolor (beyond approved palette), add effects, or place the logo on busy backgrounds without a clear zone.</p>
+      </div>
+      <div class="dont-card">
+        <div class="dont-icon">🚫</div>
+        <div class="dont-title">No generic copy</div>
+        <p class="dont-desc">"Learn More," "Click Here," "Best-in-class," "Industry-leading." All forbidden. Every CTA must be specific and action-oriented.</p>
+      </div>
+      <div class="dont-card">
+        <div class="dont-icon">🚫</div>
+        <div class="dont-title">No low-contrast text</div>
+        <p class="dont-desc">Body text must meet 4.5:1 contrast ratio. Do not place muted-color text on cream backgrounds without checking contrast.</p>
+      </div>
+      <div class="dont-card">
+        <div class="dont-icon">🚫</div>
+        <div class="dont-title">No mixed typefaces</div>
+        <p class="dont-desc">Manrope only. Do not introduce a second typeface, even for code blocks or captions. Monospace font-family is the only exception.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer style="background:var(--ink);padding:48px 0;margin-top:0;">
+  <div class="wrap" style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;">
+    <span style="font-size:18px;font-weight:800;letter-spacing:-.04em;color:#fff;">SX2</span>
+    <p style="font-size:13px;color:rgba(255,255,255,.3);">Brand Guidelines v1.0 &mdash; © 2024 SX2 PayTech Ltd.</p>
+    <a href="../index.html" style="font-size:13px;color:rgba(255,255,255,.4);text-decoration:none;font-weight:500;">← Back to site</a>
+  </div>
+</footer>
+
+</body>
+</html>
