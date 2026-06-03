@@ -1,0 +1,39 @@
+# SX2 PayTech
+
+SX2 PayTech provides cash advance platform software to licensed Canadian gaming operators under a flat monthly licence fee model. The platform enables casino operators to process cash advances through their own merchant account, retaining all transaction revenue generated on the floor instead of sharing it with a third-party vendor.
+
+## What We Do
+
+SX2 PayTech is a B2B software company that licences casino cash advance software to regulated gaming operators in Canada. Operators pay a fixed monthly licence fee and keep 100% of the transaction revenue their patrons generate. This replaces the traditional buy-rate model, where a vendor earns a percentage of every cash advance transaction processed on the floor.
+
+## Key Facts
+
+- **Pricing model:** Flat monthly licence fee — no revenue sharing, no per-transaction percentage
+- **Compliance:** PCI DSS Level 1 Certified, P2PE encrypted, PIPEDA compliant, FINTRAC Ready (AML reporting)
+- **Infrastructure:** 100% Canadian hosted on Google Cloud, 99.99% uptime
+- **Languages:** 6 languages supported on patron kiosk (including Arabic right-to-left)
+- **Jurisdiction:** Licensed Canadian gaming operators — British Columbia, Alberta, and all of Canada
+- **Merchant model:** Operators own their merchant account and process through their own acquiring relationship
+
+## Platform Components
+
+- **Patron Kiosk:** Self-service cash advance terminal with EMV chip and PIN, multi-language support, responsible gaming controls (self-exclusion, spending limits), and province-specific receipt templates
+- **Cage Workstation:** Single-screen cashier workflow with ID scanning, digital signatures, pre-authorization management, and real-time expiry tracking
+- **Back-Office Portal:** Real-time transaction reporting, settlement tracking, FINTRAC AML reporting, and financial data export
+
+## Compliance and Certifications
+
+- PCI DSS Level 1 Certified
+- Point-to-Point Encryption (P2PE)
+- PIPEDA (Personal Information Protection and Electronic Documents Act) compliant
+- FINTRAC Ready — built-in AML reporting for large cash transactions and suspicious transaction reports
+- Canadian data residency — all patron data stored in Canada
+
+## Pages
+
+- [Home](https://sx2paytech.com/): Platform overview, pricing model, features, and demo request
+- [About](https://sx2paytech.com/about.html): Company background, principles, and approach
+- [Contact](https://sx2paytech.com/contact.html): Demo request and operator inquiry form
+- [Security](https://sx2paytech.com/security.html): Technical security standards and data handling practices
+- [Privacy Policy](https://sx2paytech.com/privacy-policy.html): PIPEDA-compliant data practices
+- [Terms of Service](https://sx2paytech.com/terms-of-service.html): Website terms
