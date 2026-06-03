@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<meta name="description" content="About SX2 PayTech — Founded by Canadian gaming and fintech veterans. Built in Canada, hosted in Canada, designed for licensed Canadian gaming operators."/>
-<title>About — SX2 PayTech</title>
+<meta name="description" content="Contact SX2 PayTech — Book a platform walkthrough or get in touch with the team. We work with licensed Canadian gaming operators."/>
+<title>Contact — SX2 PayTech</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""/>
@@ -147,40 +147,6 @@ img { display: block; max-width: 100%; }
 .mob-menu a:hover { color:var(--signal); }
 .mob-close { position:absolute; top:20px; right:20px; background:none; border:none; cursor:pointer; color:var(--ink); }
 
-/* ─── Buttons ─────────────────────────────────────────────── */
-.btn-ghost-light {
-  display:inline-flex; align-items:center; gap:8px;
-  background:transparent; border:1.5px solid rgba(255,255,255,.3); color:rgba(255,255,255,.75);
-  border-radius:var(--r-full);
-  padding:13px 28px; font-family:var(--font); font-weight:600; font-size:14px;
-  text-decoration:none; cursor:pointer;
-  transition:border-color .2s, color .2s, background .2s;
-}
-.btn-ghost-light:hover { background:rgba(255,255,255,.1); color:#fff; border-color:rgba(255,255,255,.5); }
-
-/* ─── CTA ────────────────────────────────────────────────── */
-.cta-section { padding:80px 0 96px; }
-.cta-card {
-  background:var(--ink); border-radius:var(--r-2xl);
-  padding:80px 64px; text-align:center;
-  position:relative; overflow:hidden;
-  isolation: isolate;
-}
-@media(max-width:640px) { .cta-card { padding:56px 28px; } }
-.cta-glow { position:absolute; inset:0; background:radial-gradient(ellipse 60% 70% at 50% -10%, rgba(207,69,0,.2) 0%, transparent 60%); pointer-events:none; }
-.cta-grid { position:absolute; inset:0; background-image:linear-gradient(rgba(255,255,255,.02) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.02) 1px,transparent 1px); background-size:60px 60px; pointer-events:none; }
-.cta-title { color:#fff; margin-bottom:16px; position:relative; z-index:1; }
-.cta-sub   { color:rgba(255,255,255,.5); max-width:440px; margin:0 auto 40px; position:relative; z-index:1; }
-.cta-actions { display:flex; flex-wrap:wrap; justify-content:center; gap:12px; position:relative; z-index:1; margin-bottom:24px; }
-.btn-cta {
-  display:inline-flex; align-items:center; gap:8px;
-  background:var(--signal-lt); color:#fff; border-radius:var(--r-full);
-  padding:16px 36px; font-family:var(--font); font-weight:700; font-size:14px;
-  text-decoration:none; transition:background .2s, transform .15s;
-}
-.btn-cta:hover { background:var(--signal); transform:translateY(-2px); }
-.cta-small { position:relative; z-index:1; font-size:12px; color:rgba(255,255,255,.3); }
-
 /* ─── FOOTER ─────────────────────────────────────────────── */
 .footer { background:var(--ink); padding:80px 0 40px; border-radius:var(--r-2xl) var(--r-2xl) 0 0; }
 .footer-grid { display:grid; grid-template-columns:1fr; gap:48px; margin-bottom:56px; }
@@ -265,140 +231,274 @@ img { display: block; max-width: 100%; }
   .grad-blob { animation: none !important; }
 }
 
-/* ─── ABOUT BANNER ───────────────────────────────────────── */
-.about-banner {
+/* ─── CONTACT BANNER ─────────────────────────────────────── */
+.contact-banner {
   background: var(--ink);
   padding: 160px 0 96px;
   position: relative;
   overflow: hidden;
 }
-.about-banner-glow {
+.contact-banner-glow {
   position: absolute; inset: 0;
   background: radial-gradient(ellipse 65% 70% at 50% -5%, rgba(207,69,0,.22) 0%, transparent 60%);
   pointer-events: none;
 }
-.about-banner-grid {
+.contact-banner-grid {
   position: absolute; inset: 0;
   background-image: linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
   background-size: 60px 60px;
   pointer-events: none;
 }
-.about-banner-inner {
+.contact-banner-inner {
   position: relative; z-index: 1;
   max-width: 720px;
 }
-.about-banner-eyebrow {
+.contact-banner-eyebrow {
   color: var(--signal-lt);
   margin-bottom: 16px;
 }
-.about-banner-title {
+.contact-banner-title {
   color: #fff;
-  margin-bottom: 0;
+  margin-bottom: 16px;
+}
+.contact-banner-sub {
+  color: rgba(255,255,255,.5);
+  max-width: 480px;
+  font-size: 17px;
+  line-height: 1.65;
 }
 @media(max-width:640px) {
-  .about-banner { padding: 136px 0 72px; }
+  .contact-banner { padding: 136px 0 72px; }
 }
 
-/* ─── ABOUT STORY ────────────────────────────────────────── */
-.about-story {
-  padding: 96px 0;
-  background: var(--cream);
+/* ─── CONTACT SECTION ────────────────────────────────────── */
+.contact-section {
+  padding: 96px 0 120px;
+  background: var(--canvas);
 }
-.about-story-inner {
+.contact-grid {
   display: grid;
   grid-template-columns: 1fr;
   gap: 64px;
+  align-items: start;
 }
 @media(min-width: 900px) {
-  .about-story-inner {
-    grid-template-columns: 1fr 340px;
+  .contact-grid {
+    grid-template-columns: 340px 1fr;
     gap: 80px;
-    align-items: start;
   }
 }
-.about-prose { display: flex; flex-direction: column; gap: 0; }
-.about-para {
-  color: var(--slate);
+
+/* ─── Left: Info Column ──────────────────────────────────── */
+.contact-info {}
+.contact-info-heading {
   font-size: 17px;
-  line-height: 1.8;
-  font-weight: 400;
-}
-.about-para + .about-para { margin-top: 22px; }
-.about-para-lead {
+  font-weight: 700;
+  letter-spacing: -.02em;
   color: var(--ink);
-  font-size: clamp(19px, 2vw, 22px);
-  font-weight: 500;
-  line-height: 1.6;
-  letter-spacing: -.01em;
+  margin-bottom: 12px;
+}
+.contact-info-body {
+  font-size: 14px;
+  color: var(--slate);
+  line-height: 1.75;
+  margin-bottom: 32px;
 }
 
-.about-sidebar { display: flex; flex-direction: column; gap: 12px; }
-.about-fact {
-  background: var(--canvas);
+.contact-email-card {
+  background: var(--cream);
   border: 1px solid var(--watermark);
-  border-radius: 16px;
-  padding: 24px;
+  border-radius: 20px;
+  padding: 24px 28px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  text-decoration: none;
   transition: border-color .2s, box-shadow .2s;
 }
-.about-fact:hover { border-color: rgba(207,69,0,.25); box-shadow: var(--sh-sm); }
-.about-fact-label {
+.contact-email-card:hover {
+  border-color: rgba(207,69,0,.3);
+  box-shadow: var(--sh-sm);
+}
+.contact-email-icon {
+  width: 44px; height: 44px;
+  background: var(--ink);
+  border-radius: var(--r-md);
+  display: flex; align-items: center; justify-content: center;
+  color: #fff; flex-shrink: 0;
+}
+.contact-email-label {
   font-size: 10px;
   font-weight: 700;
   letter-spacing: .1em;
   text-transform: uppercase;
-  color: var(--signal);
-  margin-bottom: 8px;
+  color: var(--muted);
+  margin-bottom: 4px;
 }
-.about-fact-value {
+.contact-email-value {
   font-size: 14px;
-  font-weight: 600;
+  font-weight: 700;
   color: var(--ink);
-  line-height: 1.4;
+  letter-spacing: -.01em;
 }
 
-/* ─── ABOUT PRINCIPLES ───────────────────────────────────── */
-.about-principles {
-  padding: 0 0 96px;
+
+/* ─── Right: Form Card ───────────────────────────────────── */
+.contact-form-card {
   background: var(--cream);
+  border: 1px solid var(--watermark);
+  border-radius: 24px;
+  padding: 44px 44px;
 }
-.about-principles-grid {
+@media(max-width: 640px) {
+  .contact-form-card { padding: 28px 24px; }
+}
+
+.form-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.form-row {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: 1fr 1fr;
   gap: 16px;
 }
-@media(min-width: 640px) { .about-principles-grid { grid-template-columns: repeat(3, 1fr); } }
-.about-principle {
-  background: var(--ink);
-  border: 1px solid rgba(255,255,255,.06);
-  border-radius: 20px;
-  padding: 32px;
-  transition: border-color .2s;
+@media(max-width: 520px) {
+  .form-row { grid-template-columns: 1fr; }
 }
-.about-principle:hover { border-color: rgba(207,69,0,.35); }
-.about-principle-num {
-  font-size: 11px;
-  font-weight: 700;
-  color: var(--signal-lt);
-  letter-spacing: .1em;
-  text-transform: uppercase;
-  margin-bottom: 16px;
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
 }
-.about-principle-title {
-  font-size: 17px;
-  font-weight: 600;
-  letter-spacing: -.02em;
-  color: #fff;
-  margin-bottom: 10px;
-  line-height: 1.3;
-}
-.about-principle-body {
+.field-label {
   font-size: 13px;
-  color: rgba(255,255,255,.42);
-  line-height: 1.75;
+  font-weight: 600;
+  color: var(--ink);
+  letter-spacing: -.01em;
 }
+.field-input {
+  width: 100%;
+  border: 1.5px solid var(--border);
+  border-radius: var(--r-md);
+  padding: 11px 14px;
+  font-family: var(--font);
+  font-size: 14px;
+  background: var(--white);
+  color: var(--ink);
+  outline: none;
+  transition: border-color .2s, box-shadow .2s;
+  appearance: none;
+  -webkit-appearance: none;
+}
+.field-input:focus {
+  border-color: var(--signal);
+  box-shadow: 0 0 0 3px rgba(207,69,0,.1);
+}
+.field-input::placeholder { color: var(--muted); }
+
+textarea.field-input {
+  min-height: 130px;
+  resize: vertical;
+  line-height: 1.6;
+}
+
+.select-wrap {
+  position: relative;
+}
+.select-wrap::after {
+  content: '';
+  position: absolute;
+  right: 14px; top: 50%; transform: translateY(-50%);
+  width: 0; height: 0;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 5px solid var(--slate);
+  pointer-events: none;
+}
+select.field-input {
+  cursor: pointer;
+  padding-right: 36px;
+  background: var(--white);
+}
+
+.btn-submit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  background: var(--signal-lt);
+  color: #fff;
+  border: none;
+  border-radius: var(--r-full);
+  padding: 16px 24px;
+  font-family: var(--font);
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background .2s, transform .15s, box-shadow .2s;
+  margin-top: 4px;
+}
+.btn-submit:hover {
+  background: var(--signal);
+  transform: translateY(-1px);
+  box-shadow: 0 8px 24px rgba(207,69,0,.3);
+}
+.btn-submit:active { transform: translateY(0); }
+.btn-submit .material-symbols-outlined { font-size: 18px; }
+
+.form-footer-note {
+  font-size: 12px;
+  color: var(--muted);
+  text-align: center;
+  margin-top: 12px;
+  line-height: 1.5;
+}
+
+/* ─── Success State ──────────────────────────────────────── */
+.form-success {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 48px 24px;
+  min-height: 340px;
+}
+.form-success-icon {
+  width: 64px; height: 64px;
+  background: rgba(207,69,0,.1);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--signal);
+  margin-bottom: 24px;
+}
+.form-success-title {
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -.02em;
+  color: var(--ink);
+  margin-bottom: 10px;
+}
+.form-success-body {
+  font-size: 15px;
+  color: var(--slate);
+  line-height: 1.65;
+  max-width: 320px;
+}
+.form-success-back {
+  margin-top: 28px;
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 13px; font-weight: 600; color: var(--signal);
+  text-decoration: none; cursor: pointer;
+  background: none; border: none; font-family: var(--font);
+  transition: opacity .2s;
+}
+.form-success-back:hover { opacity: .7; }
 </style>
 </head>
-
 <body>
 
 <a href="#main" class="skip-link">Skip to main content</a>
@@ -411,8 +511,8 @@ img { display: block; max-width: 100%; }
   <a href="index.html#platform">Platform</a>
   <a href="index.html#how-it-works">How It Works</a>
   <a href="index.html#partners">Partners</a>
-  <a href="contact.html">Contact</a>
-  <a href="about.html" aria-current="page">About</a>
+  <a href="contact.html" aria-current="page">Contact</a>
+  <a href="about.html">About</a>
   <a href="contact.html">Request a Demo →</a>
 </div>
 
@@ -423,8 +523,8 @@ img { display: block; max-width: 100%; }
     <li><a href="index.html#platform">Platform</a></li>
     <li><a href="index.html#how-it-works">How It Works</a></li>
     <li><a href="index.html#partners">Partners</a></li>
-    <li><a href="contact.html">Contact</a></li>
-    <li><a href="about.html" aria-current="page">About</a></li>
+    <li><a href="contact.html" aria-current="page">Contact</a></li>
+    <li><a href="about.html">About</a></li>
   </ul>
   <div class="nav-end">
     <a href="contact.html" class="btn-nav">Request a Demo</a>
@@ -436,108 +536,116 @@ img { display: block; max-width: 100%; }
 
 <main id="main">
 
-  <!-- ABOUT BANNER -->
-  <section class="about-banner" aria-label="About SX2 PayTech">
-    <div class="about-banner-glow" aria-hidden="true"></div>
-    <div class="about-banner-grid" aria-hidden="true"></div>
+  <!-- CONTACT BANNER -->
+  <section class="contact-banner" aria-label="Contact SX2 PayTech">
+    <div class="contact-banner-glow" aria-hidden="true"></div>
+    <div class="grad-layer" aria-hidden="true">
+      <div class="grad-blob grad-b1"></div>
+      <div class="grad-blob grad-b2"></div>
+      <div class="grad-blob grad-b3"></div>
+    </div>
+    <div class="contact-banner-grid" aria-hidden="true"></div>
     <div class="wrap">
-      <div class="about-banner-inner">
-        <p class="t-eyebrow about-banner-eyebrow" data-reveal>The company</p>
-        <h1 class="t-display about-banner-title" data-reveal="title">About SX2 PayTech</h1>
+      <div class="contact-banner-inner">
+        <p class="t-eyebrow contact-banner-eyebrow" data-reveal>Get in touch</p>
+        <h1 class="t-display contact-banner-title" data-reveal="title">Talk to the SX2 team.</h1>
+        <p class="contact-banner-sub" data-reveal>Book a platform walkthrough or ask a question about what the transition looks like for your property.</p>
       </div>
     </div>
   </section>
 
-  <!-- ABOUT STORY -->
-  <section class="about-story">
+  <!-- CONTACT SECTION -->
+  <section class="contact-section" aria-labelledby="contact-heading">
     <div class="wrap">
-      <div class="about-story-inner">
+      <div class="contact-grid">
 
-        <div class="about-prose" data-reveal>
-          <p class="about-para about-para-lead">
-            SX2 PayTech was founded by Canadian gaming and fintech veterans who spent years watching casinos overpay for software that didn't keep up.
+        <!-- Left: Info -->
+        <div class="contact-info" data-reveal>
+          <h2 class="contact-info-heading" id="contact-heading">How to reach us</h2>
+          <p class="contact-info-body">
+            Send us a message using the form and we will follow up directly. We work exclusively with licensed Canadian gaming operators.
           </p>
-          <p class="about-para">
-            We built SX2 because the cash advance category was overdue for a better model — one where operators own the merchant relationship, keep the revenue they generate, and pay a predictable flat fee for software that actually works.
-          </p>
-          <p class="about-para">
-            Our team understands regulated gaming in Canada. The compliance requirements, the provincial relationships, the pace of a busy cage. That experience is built into every part of the platform.
-          </p>
-          <p class="about-para">
-            SX2 is built in Canada, hosted in Canada, and designed exclusively for licensed Canadian gaming operators.
-          </p>
+
+          <a href="mailto:info@sx2paytech.com" class="contact-email-card" aria-label="Email us at info@sx2paytech.com">
+            <div class="contact-email-icon" aria-hidden="true">
+              <span class="material-symbols-outlined" style="font-size:20px">mail</span>
+            </div>
+            <div>
+              <div class="contact-email-label">Email</div>
+              <div class="contact-email-value">info@sx2paytech.com</div>
+            </div>
+          </a>
+
+
         </div>
 
-        <aside class="about-sidebar" aria-label="Key facts" data-reveal>
-          <div class="about-fact">
-            <p class="about-fact-label">Founding</p>
-            <p class="about-fact-value">Canadian gaming and fintech veterans</p>
+        <!-- Right: Form -->
+        <div class="contact-form-card" data-reveal style="transition-delay:.1s">
+
+          <!-- Form -->
+          <form class="form-stack" id="contact-form" novalidate aria-label="Contact form">
+            <div class="form-row">
+              <div class="form-group">
+                <label class="field-label" for="first-name">First Name</label>
+                <input class="field-input" type="text" id="first-name" name="firstName" placeholder="First name" required autocomplete="given-name"/>
+              </div>
+              <div class="form-group">
+                <label class="field-label" for="last-name">Last Name</label>
+                <input class="field-input" type="text" id="last-name" name="lastName" placeholder="Last name" required autocomplete="family-name"/>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="field-label" for="company">Property / Company</label>
+              <input class="field-input" type="text" id="company" name="company" placeholder="Casino or company name" autocomplete="organization"/>
+            </div>
+
+            <div class="form-group">
+              <label class="field-label" for="email">Email Address</label>
+              <input class="field-input" type="email" id="email" name="email" placeholder="your@email.com" required autocomplete="email"/>
+            </div>
+
+            <div class="form-group">
+              <label class="field-label" for="inquiry-type">Type of Inquiry</label>
+              <div class="select-wrap">
+                <select class="field-input" id="inquiry-type" name="inquiryType">
+                  <option value="" disabled selected>Select one</option>
+                  <option value="demo">Request a Demo</option>
+                  <option value="general">General Inquiry</option>
+                  <option value="partnership">Partnership</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="field-label" for="message">Message</label>
+              <textarea class="field-input" id="message" name="message" placeholder="Tell us about your property and what you'd like to know." required></textarea>
+            </div>
+
+            <button type="submit" class="btn-submit">
+              Send Message
+              <span class="material-symbols-outlined">arrow_forward</span>
+            </button>
+
+            <p class="form-footer-note">No commitment required. We work with licensed Canadian gaming operators in Canada.</p>
+          </form>
+
+          <!-- Success State -->
+          <div class="form-success" id="form-success" aria-live="polite" aria-atomic="true">
+            <div class="form-success-icon" aria-hidden="true">
+              <span class="material-symbols-outlined" style="font-size:32px">check_circle</span>
+            </div>
+            <h3 class="form-success-title">Message received.</h3>
+            <p class="form-success-body">We will review your inquiry and be in touch with you directly.</p>
+            <button class="form-success-back" id="form-reset" type="button">
+              <span class="material-symbols-outlined" style="font-size:16px">arrow_back</span>
+              Send another message
+            </button>
           </div>
-          <div class="about-fact">
-            <p class="about-fact-label">Infrastructure</p>
-            <p class="about-fact-value">Built in Canada — Hosted in Canada</p>
-          </div>
-          <div class="about-fact">
-            <p class="about-fact-label">Focus</p>
-            <p class="about-fact-value">Licensed Canadian gaming operators, exclusively</p>
-          </div>
-          <div class="about-fact">
-            <p class="about-fact-label">Compliance</p>
-            <p class="about-fact-value">PIPEDA Compliant — FINTRAC Ready — PCI DSS</p>
-          </div>
-        </aside>
 
-      </div>
-    </div>
-  </section>
-
-  <!-- ABOUT PRINCIPLES -->
-  <section class="about-principles" aria-label="Our approach">
-    <div class="wrap">
-      <div class="about-principles-grid">
-
-        <div class="about-principle" data-reveal>
-          <p class="about-principle-num">01</p>
-          <h2 class="about-principle-title">Operators keep the revenue</h2>
-          <p class="about-principle-body">The buy rate model extracts a percentage of every transaction your patrons run. SX2 replaces that with a flat monthly licence fee. The service fee revenue your patrons generate belongs entirely to your operation.</p>
         </div>
 
-        <div class="about-principle" data-reveal style="transition-delay:.1s">
-          <p class="about-principle-num">02</p>
-          <h2 class="about-principle-title">Built for regulated gaming in Canada</h2>
-          <p class="about-principle-body">The compliance requirements, the provincial relationships, the pace of a busy cage on a Saturday night. That experience is built into every workflow, every screen, and every reporting layer in the platform.</p>
-        </div>
-
-        <div class="about-principle" data-reveal style="transition-delay:.2s">
-          <p class="about-principle-num">03</p>
-          <h2 class="about-principle-title">Built here. Hosted here.</h2>
-          <p class="about-principle-body">SX2 is built in Canada and hosted on Canadian infrastructure. Your patron data stays in Canada. Our team operates in Canada. This is not a foreign platform retrofitted for the Canadian market.</p>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA -->
-  <section class="cta-section">
-    <div class="wrap">
-      <div class="cta-card" data-reveal>
-        <div class="cta-glow" aria-hidden="true"></div>
-        <div class="grad-layer" aria-hidden="true">
-          <div class="grad-blob grad-b1"></div>
-          <div class="grad-blob grad-b2"></div>
-          <div class="grad-blob grad-b3"></div>
-          <div class="grad-blob grad-b4"></div>
-          <div class="grad-blob grad-b5"></div>
-        </div>
-        <div class="cta-grid" aria-hidden="true"></div>
-        <h2 class="t-display cta-title">See what direct to casino payments looks like.</h2>
-        <p class="t-body-lg cta-sub">Book a 30-minute walkthrough with the SX2 team.</p>
-        <div class="cta-actions">
-          <a href="contact.html" class="btn-cta">Request a Demo</a>
-          <a href="contact.html" class="btn-ghost-light">Contact the Team</a>
-        </div>
-        <p class="cta-small">No commitment required. We work with licensed Canadian gaming operators in Canada.</p>
       </div>
     </div>
   </section>
@@ -567,7 +675,7 @@ img { display: block; max-width: 100%; }
         <ul class="footer-links">
           <li><a href="about.html">About</a></li>
           <li><a href="#">Partners</a></li>
-          <li><a href="contact.html">Contact</a></li>
+          <li><a href="contact.html" aria-current="page">Contact</a></li>
           <li><a href="#">Careers</a></li>
         </ul>
       </div>
@@ -614,7 +722,40 @@ const obs = new IntersectionObserver(
   { threshold: 0.08, rootMargin: '0px 0px -32px 0px' }
 );
 document.querySelectorAll('[data-reveal]').forEach(el => obs.observe(el));
-</script>
 
+// Contact form
+const form        = document.getElementById('contact-form');
+const successPane = document.getElementById('form-success');
+const resetBtn    = document.getElementById('form-reset');
+
+form.addEventListener('submit', function(e) {
+  e.preventDefault();
+
+  // Basic client-side validation
+  const required = form.querySelectorAll('[required]');
+  let valid = true;
+  required.forEach(function(field) {
+    field.style.borderColor = '';
+    if (!field.value.trim()) {
+      field.style.borderColor = 'var(--signal)';
+      if (valid) field.focus();
+      valid = false;
+    }
+  });
+  if (!valid) return;
+
+  // Show success
+  form.style.display = 'none';
+  successPane.style.display = 'flex';
+  successPane.focus();
+});
+
+resetBtn.addEventListener('click', function() {
+  form.reset();
+  form.querySelectorAll('.field-input').forEach(function(f) { f.style.borderColor = ''; });
+  successPane.style.display = 'none';
+  form.style.display = 'flex';
+});
+</script>
 </body>
 </html>
