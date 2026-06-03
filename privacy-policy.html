@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<meta name="description" content="Contact SX2 PayTech — Book a platform walkthrough or get in touch with the team. We work with licensed Canadian gaming operators."/>
-<title>Contact — SX2 PayTech</title>
+<meta name="description" content="Privacy Policy — SX2 PayTech Inc. How we collect, use, and protect your personal information in compliance with PIPEDA."/>
+<title>Privacy Policy — SX2 PayTech</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""/>
@@ -116,7 +116,6 @@ img { display: block; max-width: 100%; }
 .nav-links { display:flex; gap:28px; list-style:none; }
 .nav-links a { color: var(--slate); text-decoration:none; font-size:14px; font-weight:500; transition:color .2s; }
 .nav-links a:hover { color: var(--signal); }
-.nav-links a[aria-current="page"] { color: var(--ink); font-weight: 700; }
 .nav-end { display:flex; align-items:center; gap:8px; flex-shrink:0; }
 .btn-nav {
   background: var(--ink); color:#fff; border:none; border-radius: var(--r-full);
@@ -142,7 +141,6 @@ img { display: block; max-width: 100%; }
   text-decoration:none; padding:18px 0;
   border-bottom:1px solid var(--watermark); transition:color .2s;
 }
-.mob-menu a[aria-current="page"] { color: var(--signal); }
 .mob-menu a:last-of-type { color:var(--signal); border:none; }
 .mob-menu a:hover { color:var(--signal); }
 .mob-close { position:absolute; top:20px; right:20px; background:none; border:none; cursor:pointer; color:var(--ink); }
@@ -159,6 +157,7 @@ img { display: block; max-width: 100%; }
 .footer-links { list-style:none; display:flex; flex-direction:column; gap:12px; }
 .footer-links a { font-size:13px; font-weight:500; color:rgba(255,255,255,.45); text-decoration:none; transition:color .2s; }
 .footer-links a:hover { color:var(--signal-lt); }
+.footer-links a[aria-current="page"] { color: rgba(255,255,255,.7); }
 .footer-bottom {
   padding-top:20px; border-top:1px solid rgba(255,255,255,.07);
   display:flex; flex-direction:column; gap:10px;
@@ -214,289 +213,155 @@ img { display: block; max-width: 100%; }
   transform-origin: calc(50% + 400px);
   animation: moveInCircle 40s linear infinite;
 }
-.grad-b4 {
-  width: 80%; height: 80%;
-  top: calc(50% - 40%); left: calc(50% - 40%);
-  background: radial-gradient(circle at center, rgba(243,115,56,.4) 0%, rgba(243,115,56,0) 55%) no-repeat;
-  transform-origin: calc(50% - 200px) calc(50% + 100px);
-  animation: moveHorizontal 40s ease infinite;
-}
-.grad-b5 {
-  width: 50%; height: 50%;
-  top: calc(50% - 25%); left: calc(50% - 25%);
-  background: radial-gradient(circle at center, rgba(207,69,0,.6) 0%, rgba(207,69,0,0) 55%) no-repeat;
-  animation: moveInCircle 20s ease infinite;
-}
 @media(prefers-reduced-motion:reduce) {
   .grad-blob { animation: none !important; }
 }
 
-/* ─── CONTACT BANNER ─────────────────────────────────────── */
-.contact-banner {
+/* ─── PAGE BANNER ────────────────────────────────────────── */
+.legal-banner {
   background: var(--ink);
-  padding: 160px 0 96px;
+  padding: 160px 0 80px;
   position: relative;
   overflow: hidden;
 }
-.contact-banner-glow {
+.legal-banner-glow {
   position: absolute; inset: 0;
-  background: radial-gradient(ellipse 65% 70% at 50% -5%, rgba(207,69,0,.22) 0%, transparent 60%);
+  background: radial-gradient(ellipse 65% 70% at 50% -5%, rgba(207,69,0,.2) 0%, transparent 60%);
   pointer-events: none;
 }
-.contact-banner-grid {
+.legal-banner-grid {
   position: absolute; inset: 0;
   background-image: linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
   background-size: 60px 60px;
   pointer-events: none;
 }
-.contact-banner-inner {
+.legal-banner-inner {
   position: relative; z-index: 1;
   max-width: 720px;
 }
-.contact-banner-eyebrow {
+.legal-banner-eyebrow {
   color: var(--signal-lt);
   margin-bottom: 16px;
 }
-.contact-banner-title {
+.legal-banner-title {
   color: #fff;
-  margin-bottom: 16px;
+  margin-bottom: 14px;
 }
-.contact-banner-sub {
-  color: rgba(255,255,255,.5);
-  max-width: 480px;
-  font-size: 17px;
-  line-height: 1.65;
+.legal-banner-meta {
+  color: rgba(255,255,255,.35);
+  font-size: 14px;
+  font-weight: 500;
 }
 @media(max-width:640px) {
-  .contact-banner { padding: 136px 0 72px; }
+  .legal-banner { padding: 136px 0 64px; }
 }
 
-/* ─── CONTACT SECTION ────────────────────────────────────── */
-.contact-section {
-  padding: 96px 0 120px;
+/* ─── LEGAL CONTENT ──────────────────────────────────────── */
+.legal-section {
+  padding: 80px 0 120px;
   background: var(--canvas);
 }
-.contact-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 64px;
-  align-items: start;
+.legal-doc {
+  max-width: 720px;
 }
-@media(min-width: 900px) {
-  .contact-grid {
-    grid-template-columns: 340px 1fr;
-    gap: 80px;
-  }
+.legal-section-block {
+  margin-bottom: 40px;
 }
-
-/* ─── Left: Info Column ──────────────────────────────────── */
-.contact-info {}
-.contact-info-heading {
+.legal-section-block:last-child { margin-bottom: 0; }
+.legal-section-num {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--signal);
+  margin-bottom: 8px;
+}
+.legal-section-title {
   font-size: 17px;
   font-weight: 700;
   letter-spacing: -.02em;
   color: var(--ink);
   margin-bottom: 12px;
 }
-.contact-info-body {
-  font-size: 14px;
+.legal-section-body {
+  font-size: 15px;
   color: var(--slate);
-  line-height: 1.75;
-  margin-bottom: 32px;
+  line-height: 1.8;
 }
-
-.contact-email-card {
+.legal-section-body + .legal-section-body {
+  margin-top: 12px;
+}
+.legal-divider {
+  border: none;
+  border-top: 1px solid var(--watermark);
+  margin: 48px 0;
+}
+.legal-rights-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 14px;
+}
+.legal-rights-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 15px;
+  color: var(--slate);
+  line-height: 1.6;
+}
+.legal-rights-list li::before {
+  content: '';
+  width: 6px; height: 6px;
+  background: var(--signal);
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: 7px;
+}
+.legal-contact-card {
   background: var(--cream);
   border: 1px solid var(--watermark);
-  border-radius: 20px;
+  border-radius: 16px;
   padding: 24px 28px;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   gap: 16px;
   text-decoration: none;
+  margin-top: 8px;
   transition: border-color .2s, box-shadow .2s;
 }
-.contact-email-card:hover {
+.legal-contact-card:hover {
   border-color: rgba(207,69,0,.3);
   box-shadow: var(--sh-sm);
 }
-.contact-email-icon {
-  width: 44px; height: 44px;
+.legal-contact-icon {
+  width: 40px; height: 40px;
   background: var(--ink);
   border-radius: var(--r-md);
   display: flex; align-items: center; justify-content: center;
   color: #fff; flex-shrink: 0;
 }
-.contact-email-label {
+.legal-contact-label {
   font-size: 10px;
   font-weight: 700;
   letter-spacing: .1em;
   text-transform: uppercase;
   color: var(--muted);
-  margin-bottom: 4px;
+  margin-bottom: 3px;
 }
-.contact-email-value {
+.legal-contact-value {
   font-size: 14px;
   font-weight: 700;
   color: var(--ink);
   letter-spacing: -.01em;
 }
-
-
-/* ─── Right: Form Card ───────────────────────────────────── */
-.contact-form-card {
-  background: var(--cream);
-  border: 1px solid var(--watermark);
-  border-radius: 24px;
-  padding: 44px 44px;
-}
-@media(max-width: 640px) {
-  .contact-form-card { padding: 28px 24px; }
-}
-
-.form-stack {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-.form-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px;
-}
-@media(max-width: 520px) {
-  .form-row { grid-template-columns: 1fr; }
-}
-.form-group {
-  display: flex;
-  flex-direction: column;
-  gap: 7px;
-}
-.field-label {
+.legal-response-note {
   font-size: 13px;
-  font-weight: 600;
-  color: var(--ink);
-  letter-spacing: -.01em;
-}
-.field-input {
-  width: 100%;
-  border: 1.5px solid var(--border);
-  border-radius: var(--r-md);
-  padding: 11px 14px;
-  font-family: var(--font);
-  font-size: 14px;
-  background: var(--white);
-  color: var(--ink);
-  outline: none;
-  transition: border-color .2s, box-shadow .2s;
-  appearance: none;
-  -webkit-appearance: none;
-}
-.field-input:focus {
-  border-color: var(--signal);
-  box-shadow: 0 0 0 3px rgba(207,69,0,.1);
-}
-.field-input::placeholder { color: var(--muted); }
-
-textarea.field-input {
-  min-height: 130px;
-  resize: vertical;
-  line-height: 1.6;
-}
-
-.select-wrap {
-  position: relative;
-}
-.select-wrap::after {
-  content: '';
-  position: absolute;
-  right: 14px; top: 50%; transform: translateY(-50%);
-  width: 0; height: 0;
-  border-left: 4px solid transparent;
-  border-right: 4px solid transparent;
-  border-top: 5px solid var(--slate);
-  pointer-events: none;
-}
-select.field-input {
-  cursor: pointer;
-  padding-right: 36px;
-  background: var(--white);
-}
-
-.btn-submit {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  width: 100%;
-  background: var(--signal-lt);
-  color: #fff;
-  border: none;
-  border-radius: var(--r-full);
-  padding: 16px 24px;
-  font-family: var(--font);
-  font-weight: 700;
-  font-size: 14px;
-  cursor: pointer;
-  transition: background .2s, transform .15s, box-shadow .2s;
-  margin-top: 4px;
-}
-.btn-submit:hover {
-  background: var(--signal);
-  transform: translateY(-1px);
-  box-shadow: 0 8px 24px rgba(207,69,0,.3);
-}
-.btn-submit:active { transform: translateY(0); }
-.btn-submit .material-symbols-outlined { font-size: 18px; }
-
-.form-footer-note {
-  font-size: 12px;
   color: var(--muted);
-  text-align: center;
-  margin-top: 12px;
+  margin-top: 14px;
   line-height: 1.5;
 }
-
-/* ─── Success State ──────────────────────────────────────── */
-.form-success {
-  display: none;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 48px 24px;
-  min-height: 340px;
-}
-.form-success-icon {
-  width: 64px; height: 64px;
-  background: rgba(207,69,0,.1);
-  border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  color: var(--signal);
-  margin-bottom: 24px;
-}
-.form-success-title {
-  font-size: 22px;
-  font-weight: 700;
-  letter-spacing: -.02em;
-  color: var(--ink);
-  margin-bottom: 10px;
-}
-.form-success-body {
-  font-size: 15px;
-  color: var(--slate);
-  line-height: 1.65;
-  max-width: 320px;
-}
-.form-success-back {
-  margin-top: 28px;
-  display: inline-flex; align-items: center; gap: 6px;
-  font-size: 13px; font-weight: 600; color: var(--signal);
-  text-decoration: none; cursor: pointer;
-  background: none; border: none; font-family: var(--font);
-  transition: opacity .2s;
-}
-.form-success-back:hover { opacity: .7; }
 </style>
 </head>
 <body>
@@ -511,7 +376,7 @@ select.field-input {
   <a href="index.html#platform">Platform</a>
   <a href="index.html#how-it-works">How It Works</a>
   <a href="index.html#partners">Partners</a>
-  <a href="contact.html" aria-current="page">Contact</a>
+  <a href="contact.html">Contact</a>
   <a href="about.html">About</a>
   <a href="contact.html">Request a Demo →</a>
 </div>
@@ -523,7 +388,7 @@ select.field-input {
     <li><a href="index.html#platform">Platform</a></li>
     <li><a href="index.html#how-it-works">How It Works</a></li>
     <li><a href="index.html#partners">Partners</a></li>
-    <li><a href="contact.html" aria-current="page">Contact</a></li>
+    <li><a href="contact.html">Contact</a></li>
     <li><a href="about.html">About</a></li>
   </ul>
   <div class="nav-end">
@@ -536,114 +401,153 @@ select.field-input {
 
 <main id="main">
 
-  <!-- CONTACT BANNER -->
-  <section class="contact-banner" aria-label="Contact SX2 PayTech">
-    <div class="contact-banner-glow" aria-hidden="true"></div>
+  <!-- BANNER -->
+  <section class="legal-banner" aria-label="Privacy Policy">
+    <div class="legal-banner-glow" aria-hidden="true"></div>
     <div class="grad-layer" aria-hidden="true">
       <div class="grad-blob grad-b1"></div>
       <div class="grad-blob grad-b2"></div>
       <div class="grad-blob grad-b3"></div>
     </div>
-    <div class="contact-banner-grid" aria-hidden="true"></div>
+    <div class="legal-banner-grid" aria-hidden="true"></div>
     <div class="wrap">
-      <div class="contact-banner-inner">
-        <p class="t-eyebrow contact-banner-eyebrow" data-reveal>Get in touch</p>
-        <h1 class="t-display contact-banner-title" data-reveal="title">Talk to the SX2 team.</h1>
-        <p class="contact-banner-sub" data-reveal>Book a platform walkthrough or ask a question about what the transition looks like for your property.</p>
+      <div class="legal-banner-inner">
+        <p class="t-eyebrow legal-banner-eyebrow" data-reveal>Legal</p>
+        <h1 class="t-display legal-banner-title" data-reveal="title">Privacy Policy</h1>
+        <p class="legal-banner-meta" data-reveal>Effective Date: June 2, 2026</p>
       </div>
     </div>
   </section>
 
-  <!-- CONTACT SECTION -->
-  <section class="contact-section" aria-labelledby="contact-heading">
+  <!-- CONTENT -->
+  <section class="legal-section" aria-labelledby="pp-heading">
     <div class="wrap">
-      <div class="contact-grid">
+      <div class="legal-doc" data-reveal>
 
-        <!-- Left: Info -->
-        <div class="contact-info" data-reveal>
-          <h2 class="contact-info-heading" id="contact-heading">How to reach us</h2>
-          <p class="contact-info-body">
-            Send us a message using the form and we will follow up directly. We work exclusively with licensed Canadian gaming operators.
+        <div class="legal-section-block">
+          <p class="legal-section-body">
+            SX2 PayTech Inc. ("SX2," "we," "us," or "our") is committed to protecting the privacy of individuals who visit sx2paytech.com (the "Site"). This Privacy Policy explains what information we collect, how we use it, and your rights. SX2 operates in compliance with the Personal Information Protection and Electronic Documents Act (PIPEDA) and applicable provincial privacy legislation.
           </p>
+          <p class="legal-section-body" style="margin-top:12px;">
+            This Policy applies to information collected through the Site only. It does not govern personal information processed through the SX2 software platform, which is subject to data processing agreements with licensed gaming operators.
+          </p>
+        </div>
 
-          <a href="mailto:info@sx2paytech.com" class="contact-email-card" aria-label="Email us at info@sx2paytech.com">
-            <div class="contact-email-icon" aria-hidden="true">
+        <hr class="legal-divider"/>
+
+        <div class="legal-section-block">
+          <p class="legal-section-num">Section 1</p>
+          <h2 class="legal-section-title" id="pp-heading">Information We Collect</h2>
+          <p class="legal-section-body">
+            We collect personal information only when you voluntarily provide it. This may include your name, job title, organization, email address, and phone number when you submit a demo request or contact form; the content of any inquiry or message you send us; and technical information collected automatically when you visit the Site, such as IP address, browser type, device type, and pages visited.
+          </p>
+          <p class="legal-section-body" style="margin-top:12px;">
+            Automatically collected technical information does not identify you personally. We do not collect sensitive personal information such as financial account details, government identification, or health information through this Site.
+          </p>
+        </div>
+
+        <div class="legal-section-block">
+          <p class="legal-section-num">Section 2</p>
+          <h2 class="legal-section-title">How We Use Your Information</h2>
+          <p class="legal-section-body">
+            We use the information we collect to respond to your inquiries and demo requests; follow up with you about our platform and services; improve and maintain the Site; comply with legal obligations; and detect and prevent fraud or security incidents. We do not sell your personal information to third parties.
+          </p>
+        </div>
+
+        <div class="legal-section-block">
+          <p class="legal-section-num">Section 3</p>
+          <h2 class="legal-section-title">Legal Basis for Processing</h2>
+          <p class="legal-section-body">
+            We collect and process your personal information with your consent, provided when you submit a form, or where necessary for our legitimate business interests in responding to inquiries and promoting our services, provided those interests are not overridden by your privacy rights.
+          </p>
+        </div>
+
+        <div class="legal-section-block">
+          <p class="legal-section-num">Section 4</p>
+          <h2 class="legal-section-title">Data Residency</h2>
+          <p class="legal-section-body">
+            SX2's infrastructure is hosted in Canada on Google Cloud Platform, with data residency maintained within Canadian borders. We do not transfer personal information collected through this Site outside of Canada without your consent, except where required by law.
+          </p>
+        </div>
+
+        <div class="legal-section-block">
+          <p class="legal-section-num">Section 5</p>
+          <h2 class="legal-section-title">Disclosure of Your Information</h2>
+          <p class="legal-section-body">
+            We do not disclose your personal information to third parties except to trusted service providers who assist us in operating the Site, subject to confidentiality obligations consistent with this Policy; where required by law, regulation, or court order; in connection with a business transaction such as a merger or acquisition, where the receiving party is bound by obligations no less protective than this Policy; or with your explicit consent.
+          </p>
+        </div>
+
+        <div class="legal-section-block">
+          <p class="legal-section-num">Section 6</p>
+          <h2 class="legal-section-title">Cookies</h2>
+          <p class="legal-section-body">
+            The Site may use cookies and similar technologies to improve user experience and analyze Site traffic. You can configure your browser to refuse cookies, though some Site features may be affected. We do not use cookies to track you across unrelated third-party websites or for targeted advertising.
+          </p>
+        </div>
+
+        <div class="legal-section-block">
+          <p class="legal-section-num">Section 7</p>
+          <h2 class="legal-section-title">Data Retention</h2>
+          <p class="legal-section-body">
+            We retain personal information only as long as necessary to fulfill the purposes for which it was collected or as required by law. Inquiry and demo request information is retained for a period reasonable to complete the evaluation process, after which it is securely deleted or anonymized.
+          </p>
+        </div>
+
+        <div class="legal-section-block">
+          <p class="legal-section-num">Section 8</p>
+          <h2 class="legal-section-title">Security</h2>
+          <p class="legal-section-body">
+            We implement reasonable administrative, technical, and physical safeguards to protect your personal information. No method of internet transmission or electronic storage is completely secure, and we cannot guarantee absolute security.
+          </p>
+        </div>
+
+        <div class="legal-section-block">
+          <p class="legal-section-num">Section 9</p>
+          <h2 class="legal-section-title">Your Rights</h2>
+          <p class="legal-section-body">Subject to applicable law, you have the right to:</p>
+          <ul class="legal-rights-list">
+            <li>Request access to the personal information we hold about you</li>
+            <li>Request correction of inaccurate or incomplete information</li>
+            <li>Withdraw consent where processing is based on consent</li>
+            <li>Request deletion of your personal information, subject to our legal obligations</li>
+            <li>Lodge a complaint with the Office of the Privacy Commissioner of Canada or a relevant provincial privacy authority</li>
+          </ul>
+          <p class="legal-section-body" style="margin-top:14px;">To exercise any of these rights, contact us using the information below.</p>
+        </div>
+
+        <div class="legal-section-block">
+          <p class="legal-section-num">Section 10</p>
+          <h2 class="legal-section-title">Third-Party Links</h2>
+          <p class="legal-section-body">
+            This Site may contain links to third-party websites. We are not responsible for the privacy practices or content of those sites. We encourage you to review their privacy policies directly.
+          </p>
+        </div>
+
+        <div class="legal-section-block">
+          <p class="legal-section-num">Section 11</p>
+          <h2 class="legal-section-title">Changes to This Policy</h2>
+          <p class="legal-section-body">
+            We may update this Privacy Policy at any time. The effective date at the top of this page reflects the most recent version. Continued use of the Site constitutes acceptance of any updated Policy.
+          </p>
+        </div>
+
+        <hr class="legal-divider"/>
+
+        <div class="legal-section-block">
+          <p class="legal-section-num">Section 12</p>
+          <h2 class="legal-section-title">Contact Our Privacy Officer</h2>
+          <p class="legal-section-body">Privacy Officer, SX2 PayTech Inc.</p>
+          <a href="mailto:info@sx2paytech.com" class="legal-contact-card" aria-label="Email our Privacy Officer at info@sx2paytech.com">
+            <div class="legal-contact-icon" aria-hidden="true">
               <span class="material-symbols-outlined" style="font-size:20px">mail</span>
             </div>
             <div>
-              <div class="contact-email-label">Email</div>
-              <div class="contact-email-value">info@sx2paytech.com</div>
+              <div class="legal-contact-label">Email</div>
+              <div class="legal-contact-value">info@sx2paytech.com</div>
             </div>
           </a>
-
-
-        </div>
-
-        <!-- Right: Form -->
-        <div class="contact-form-card" data-reveal style="transition-delay:.1s">
-
-          <!-- Form -->
-          <form class="form-stack" id="contact-form" novalidate aria-label="Contact form">
-            <div class="form-row">
-              <div class="form-group">
-                <label class="field-label" for="first-name">First Name</label>
-                <input class="field-input" type="text" id="first-name" name="firstName" placeholder="First name" required autocomplete="given-name"/>
-              </div>
-              <div class="form-group">
-                <label class="field-label" for="last-name">Last Name</label>
-                <input class="field-input" type="text" id="last-name" name="lastName" placeholder="Last name" required autocomplete="family-name"/>
-              </div>
-            </div>
-
-            <div class="form-group">
-              <label class="field-label" for="company">Property / Company</label>
-              <input class="field-input" type="text" id="company" name="company" placeholder="Casino or company name" autocomplete="organization"/>
-            </div>
-
-            <div class="form-group">
-              <label class="field-label" for="email">Email Address</label>
-              <input class="field-input" type="email" id="email" name="email" placeholder="your@email.com" required autocomplete="email"/>
-            </div>
-
-            <div class="form-group">
-              <label class="field-label" for="inquiry-type">Type of Inquiry</label>
-              <div class="select-wrap">
-                <select class="field-input" id="inquiry-type" name="inquiryType">
-                  <option value="" disabled selected>Select one</option>
-                  <option value="demo">Request a Demo</option>
-                  <option value="general">General Inquiry</option>
-                  <option value="partnership">Partnership</option>
-                  <option value="other">Other</option>
-                </select>
-              </div>
-            </div>
-
-            <div class="form-group">
-              <label class="field-label" for="message">Message</label>
-              <textarea class="field-input" id="message" name="message" placeholder="Tell us about your property and what you'd like to know." required></textarea>
-            </div>
-
-            <button type="submit" class="btn-submit">
-              Send Message
-              <span class="material-symbols-outlined">arrow_forward</span>
-            </button>
-
-            <p class="form-footer-note">No commitment required. We work with licensed Canadian gaming operators in Canada.</p>
-          </form>
-
-          <!-- Success State -->
-          <div class="form-success" id="form-success" aria-live="polite" aria-atomic="true">
-            <div class="form-success-icon" aria-hidden="true">
-              <span class="material-symbols-outlined" style="font-size:32px">check_circle</span>
-            </div>
-            <h3 class="form-success-title">Message received.</h3>
-            <p class="form-success-body">We will review your inquiry and be in touch with you directly.</p>
-            <button class="form-success-back" id="form-reset" type="button">
-              <span class="material-symbols-outlined" style="font-size:16px">arrow_back</span>
-              Send another message
-            </button>
-          </div>
-
+          <p class="legal-response-note">We will respond to privacy inquiries within 30 days.</p>
         </div>
 
       </div>
@@ -664,18 +568,18 @@ select.field-input {
       <div>
         <h3 class="footer-col-head">Platform</h3>
         <ul class="footer-links">
-          <li><a href="#">Patron Kiosk</a></li>
-          <li><a href="#">Cage Workstation</a></li>
-          <li><a href="#">Back-Office Portal</a></li>
-          <li><a href="#">Compliance Engine</a></li>
+          <li><a href="index.html#platform">Patron Kiosk</a></li>
+          <li><a href="index.html#platform">Cage Workstation</a></li>
+          <li><a href="index.html#platform">Back-Office Portal</a></li>
+          <li><a href="index.html#platform">Compliance Engine</a></li>
         </ul>
       </div>
       <div>
         <h3 class="footer-col-head">Company</h3>
         <ul class="footer-links">
           <li><a href="about.html">About</a></li>
-          <li><a href="#">Partners</a></li>
-          <li><a href="contact.html" aria-current="page">Contact</a></li>
+          <li><a href="index.html#partners">Partners</a></li>
+          <li><a href="contact.html">Contact</a></li>
           <li><a href="#">Careers</a></li>
         </ul>
       </div>
@@ -684,7 +588,7 @@ select.field-input {
         <ul class="footer-links">
           <li><a href="#">Documentation</a></li>
           <li><a href="#">Security</a></li>
-          <li><a href="privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="privacy-policy.html" aria-current="page">Privacy Policy</a></li>
           <li><a href="terms-of-service.html">Terms of Service</a></li>
         </ul>
       </div>
@@ -722,40 +626,6 @@ const obs = new IntersectionObserver(
   { threshold: 0.08, rootMargin: '0px 0px -32px 0px' }
 );
 document.querySelectorAll('[data-reveal]').forEach(el => obs.observe(el));
-
-// Contact form
-const form        = document.getElementById('contact-form');
-const successPane = document.getElementById('form-success');
-const resetBtn    = document.getElementById('form-reset');
-
-form.addEventListener('submit', function(e) {
-  e.preventDefault();
-
-  // Basic client-side validation
-  const required = form.querySelectorAll('[required]');
-  let valid = true;
-  required.forEach(function(field) {
-    field.style.borderColor = '';
-    if (!field.value.trim()) {
-      field.style.borderColor = 'var(--signal)';
-      if (valid) field.focus();
-      valid = false;
-    }
-  });
-  if (!valid) return;
-
-  // Show success
-  form.style.display = 'none';
-  successPane.style.display = 'flex';
-  successPane.focus();
-});
-
-resetBtn.addEventListener('click', function() {
-  form.reset();
-  form.querySelectorAll('.field-input').forEach(function(f) { f.style.borderColor = ''; });
-  successPane.style.display = 'none';
-  form.style.display = 'flex';
-});
 </script>
 </body>
 </html>
