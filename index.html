@@ -82,6 +82,18 @@ img { display: block; max-width: 100%; }
   transition: opacity .65s cubic-bezier(.16,1,.3,1), transform .65s cubic-bezier(.16,1,.3,1);
 }
 [data-reveal].in { opacity:1; transform:translateY(0); }
+
+/* ─── Title bounce variant ───────────────────────────────── */
+@keyframes title-bounce-in {
+  0%   { opacity:0; transform:translateY(26px); }
+  55%  { opacity:1; transform:translateY(-6px); }
+  75%  { transform:translateY(3px); }
+  90%  { transform:translateY(-1px); }
+  100% { opacity:1; transform:translateY(0); }
+}
+[data-reveal~="title"]       { transition:none; }
+[data-reveal~="title"].in    { animation:title-bounce-in .8s cubic-bezier(.16,1,.3,1) both; transition:none; }
+
 @media(prefers-reduced-motion:reduce) {
   *, *::before, *::after { animation-duration:.01ms !important; transition-duration:.01ms !important; }
   [data-reveal] { opacity:1; transform:none; }
@@ -672,10 +684,6 @@ img { display: block; max-width: 100%; }
         </div>
 
         <div class="hero-body">
-          <div class="hero-badge">
-            <span class="hero-badge-dot"></span>
-            Built for Canadian gaming operators
-          </div>
           <h1 class="t-display hero-title" aria-label="The cash advance platform that works for the casino, the operator, the CFO, and the patron.">
             The cash advance platform that works for
             <span class="hero-typed-wrap" aria-hidden="true">
@@ -770,10 +778,10 @@ img { display: block; max-width: 100%; }
   <!-- THE PROBLEM -->
   <section class="section problem-section" aria-labelledby="problem-heading">
     <div class="wrap">
-      <div class="sec-head" data-reveal>
-        <p class="t-eyebrow sec-eyebrow eyebrow-signal">The status quo</p>
-        <h2 class="t-h2 sec-title" id="problem-heading" style="color:#fff">Canadian casinos have been paying too much for too long.</h2>
-        <p class="t-body-lg problem-sub">
+      <div class="sec-head">
+        <p class="t-eyebrow sec-eyebrow eyebrow-signal" data-reveal>The status quo</p>
+        <h2 class="t-h2 sec-title" id="problem-heading" style="color:#fff" data-reveal="title">Canadian casinos have been paying too much for too long.</h2>
+        <p class="t-body-lg problem-sub" data-reveal>
           Traditional cash advance vendors earn a share of every transaction processed on your floor. The technology ages, contracts get longer, and revenue continues leaving the property.
         </p>
       </div>
@@ -808,10 +816,10 @@ img { display: block; max-width: 100%; }
   <!-- THE SOLUTION -->
   <section class="section solution-section" aria-labelledby="solution-heading">
     <div class="wrap">
-      <div class="sec-head" data-reveal>
-        <p class="t-eyebrow sec-eyebrow eyebrow-signal">A Better Model</p>
-        <h2 class="t-h2 sec-title" id="solution-heading">Keep the Revenue. Control the Operation.</h2>
-        <p class="t-body-lg solution-sub">
+      <div class="sec-head">
+        <p class="t-eyebrow sec-eyebrow eyebrow-signal" data-reveal>A Better Model</p>
+        <h2 class="t-h2 sec-title" id="solution-heading" data-reveal="title">Keep the Revenue. Control the Operation.</h2>
+        <p class="t-body-lg solution-sub" data-reveal>
           SX2 provides the software platform that powers your cash access operation. You pay a fixed monthly licence fee and keep the transaction revenue generated on your floor.
         </p>
       </div>
@@ -835,10 +843,10 @@ img { display: block; max-width: 100%; }
   <!-- PLATFORM FEATURES -->
   <section class="section features-section" aria-labelledby="features-heading">
     <div class="wrap">
-      <div class="sec-head centered" data-reveal>
-        <p class="t-eyebrow sec-eyebrow eyebrow-signal">The Platform</p>
-        <h2 class="t-h2 sec-title" id="features-heading">Built for the Gaming Floor.</h2>
-        <p class="t-body sec-sub">
+      <div class="sec-head centered">
+        <p class="t-eyebrow sec-eyebrow eyebrow-signal" data-reveal>The Platform</p>
+        <h2 class="t-h2 sec-title" id="features-heading" data-reveal="title">Built for the Gaming Floor.</h2>
+        <p class="t-body sec-sub" data-reveal>
           One platform connecting the patron kiosk, cage workstation, and back office.
         </p>
       </div>
@@ -907,10 +915,10 @@ img { display: block; max-width: 100%; }
   <!-- HOW IT WORKS -->
   <section class="section hiw-section" aria-labelledby="hiw-heading">
     <div class="wrap">
-      <div class="sec-head centered" data-reveal>
-        <p class="t-eyebrow sec-eyebrow eyebrow-signal">The Process</p>
-        <h2 class="t-h2 sec-title" id="hiw-heading">Fast for Patrons. Accountable for Operators.</h2>
-        <p class="t-body sec-sub">
+      <div class="sec-head centered">
+        <p class="t-eyebrow sec-eyebrow eyebrow-signal" data-reveal>The Process</p>
+        <h2 class="t-h2 sec-title" id="hiw-heading" data-reveal="title">Fast for Patrons. Accountable for Operators.</h2>
+        <p class="t-body sec-sub" data-reveal>
           Every transaction is tracked, verified, and reconciled from authorization through settlement.
         </p>
       </div>
@@ -956,7 +964,7 @@ img { display: block; max-width: 100%; }
       <div class="split-grid">
         <div class="split-copy">
           <p class="t-eyebrow sec-eyebrow eyebrow-signal" data-reveal>Patron experience</p>
-          <h2 class="t-h2 sec-title" id="kiosk-heading" data-reveal>A kiosk your patrons actually understand.</h2>
+          <h2 class="t-h2 sec-title" id="kiosk-heading" data-reveal="title">A kiosk your patrons actually understand.</h2>
           <p class="t-body sec-body" data-reveal>
             Most casino floors serve a genuinely diverse patron base. The SX2 kiosk was designed for that reality from the beginning — not retrofitted with a language toggle as an afterthought.
             Six languages with proper localization, including Arabic with right-to-left layout and correctly rendered typography.
@@ -1031,7 +1039,7 @@ img { display: block; max-width: 100%; }
         </div>
         <div class="split-copy">
           <p class="t-eyebrow sec-eyebrow eyebrow-signal" data-reveal>Cage operations</p>
-          <h2 class="t-h2 sec-title" id="cage-heading" data-reveal>Built for the pace of your busiest night.</h2>
+          <h2 class="t-h2 sec-title" id="cage-heading" data-reveal="title">Built for the pace of your busiest night.</h2>
           <p class="t-body sec-body" data-reveal>
             The cage workstation is a single-screen workflow designed around how a cashier actually works — not how a software architect imagined it.
             Search pending transactions by card last four. See the pre-authorization with a live expiry timer. Scan government ID in one step. Capture digital signature. Print both copies of the receipt.
@@ -1051,10 +1059,10 @@ img { display: block; max-width: 100%; }
   <!-- INTEGRATIONS -->
   <section class="section integrations-section" aria-labelledby="int-heading">
     <div class="wrap">
-      <div class="sec-head" data-reveal>
-        <p class="t-eyebrow sec-eyebrow eyebrow-signal">Integrations</p>
-        <h2 class="t-h2 sec-title" id="int-heading">Connected to the systems Canadian gaming operators already use.</h2>
-        <p class="t-body sec-sub">
+      <div class="sec-head">
+        <p class="t-eyebrow sec-eyebrow eyebrow-signal" data-reveal>Integrations</p>
+        <h2 class="t-h2 sec-title" id="int-heading" data-reveal="title">Connected to the systems Canadian gaming operators already use.</h2>
+        <p class="t-body sec-sub" data-reveal>
           SX2 is built to work with the gateway, acquirer, hardware, and compliance systems that are already part of how regulated gaming floors operate in Canada.
         </p>
       </div>
