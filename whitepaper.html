@@ -1,0 +1,744 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Cost of Revenue Sharing | SX2 PayTech</title>
+<link rel="icon" type="image/x-icon" href="/assets/favicon.ico"/>
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png"/>
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png"/>
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png"/>
+<style>
+  /* System Helvetica stack | no web font import needed */
+
+  :root {
+    --ink:       #141413;
+    --charcoal:  #262627;
+    --orange:    #F37338;
+    --orange-dark:#CF4500;
+    --cream:     #F3F0EE;
+    --lifted:    #FCFBFA;
+    --mid-gray:  #696969;
+    --light-gray:#9A9690;
+    --rule:      #D8D4D0;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html {
+    font-size: 10pt;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  body {
+    background: #e8e4e0;
+    color: var(--ink);
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; /* single stack */
+  }
+
+  .page {
+    width: 210mm;
+    min-height: 297mm;
+    margin: 24px auto;
+    background: var(--lifted);
+  }
+
+  /* ── Header ── */
+  .doc-header {
+    background: var(--ink);
+    padding: 18px 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2.5px solid var(--orange);
+  }
+
+  .brand-logo {
+    height: 26px;
+    width: auto;
+    display: block;
+  }
+
+  .doc-type {
+    font-size: 8pt;
+    color: var(--light-gray);
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+  }
+
+  /* ── Cover ── */
+  .cover {
+    background: var(--ink);
+    padding: 32px 48px 28px;
+    display: grid;
+    grid-template-columns: 1fr 160px;
+    gap: 40px;
+    align-items: start;
+  }
+
+  .cover-left { text-align: left; }
+
+  .cover-identity {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+
+  .cover-logo-img {
+    height: 41px;
+    width: auto;
+    display: block;
+    margin-bottom: 14px;
+  }
+
+  .cover-eyebrow {
+    font-size: 8.9pt;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 0;
+  }
+
+  .cover h1 {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; /* single stack */
+    font-style: normal;
+    font-size: 24pt;
+    font-weight: 700;
+    line-height: 1.12;
+    color: var(--cream);
+    max-width: 380px;
+    margin-bottom: 20px;
+    letter-spacing: -0.02em;
+  }
+
+  .cover-sub {
+    font-size: 9.5pt;
+    color: #ffffff;
+    line-height: 1.6;
+    max-width: 340px;
+  }
+
+  .cover-meta {
+    margin-top: 20px;
+    padding-top: 14px;
+    border-top: 1px solid #2e2d2c;
+    display: flex;
+    gap: 28px;
+  }
+
+  .cover-meta-item {
+    font-size: 7.5pt;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color: rgba(255,255,255,0.45);
+  }
+
+  .cover-meta-item span {
+    display: block;
+    color: #ffffff;
+    margin-top: 3px;
+  }
+
+  /* ── Cover right: key figure ── */
+  .cover-figure {
+    padding-top: 8px;
+  }
+
+  .cover-figure-num {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; /* single stack */
+    font-size: 28pt;
+    font-weight: 700;
+    color: var(--orange);
+    line-height: 1;
+    letter-spacing: -0.03em;
+  }
+
+  .cover-figure-unit {
+    font-size: 13pt;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; /* single stack */
+    font-weight: 400;
+    color: var(--orange);
+    opacity: 0.7;
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+
+  .cover-figure-label {
+    font-size: 8pt;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.5;
+    max-width: 140px;
+  }
+
+  /* ── Body ── */
+  .doc-body {
+    padding: 0 48px 40px;
+  }
+
+  /* ── Section ── */
+  .section {
+    padding: 30px 0 28px;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .section:last-child { border-bottom: none; }
+
+  .section-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+  }
+
+  .section-num {
+    font-size: 7pt;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--orange);
+  }
+
+  .section-rule {
+    flex: 1;
+    height: 1px;
+    background: var(--rule);
+  }
+
+  .section h2 {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; /* single stack */
+    font-size: 12.5pt;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 14px;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+  }
+
+  .section p {
+    font-size: 11pt;
+    color: var(--charcoal);
+    margin-bottom: 9px;
+    line-height: 1.65;
+    max-width: 560px;
+  }
+
+  .section p:last-child { margin-bottom: 0; }
+
+  /* ── Chart ── */
+  .chart-wrap {
+    margin: 22px 0 8px;
+    background: var(--cream);
+    padding: 20px 20px 16px;
+  }
+
+  .chart-title {
+    font-size: 7.5pt;
+    font-weight: 600;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--mid-gray);
+    margin-bottom: 14px;
+  }
+
+  .chart-note {
+    font-size: 7.5pt;
+    color: var(--light-gray);
+    margin-top: 10px;
+    font-style: italic;
+    line-height: 1.5;
+  }
+
+  /* ── Model comparison ── */
+  .model-compare {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--rule);
+    margin: 20px 0 4px;
+  }
+
+  .model-col {
+    background: var(--lifted);
+    padding: 0;
+  }
+
+  .model-col.highlight { background: var(--cream); }
+
+  .model-col-head {
+    padding: 12px 16px 11px;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .model-col-head .model-label {
+    font-size: 7pt;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--light-gray);
+    margin-bottom: 3px;
+  }
+
+  .model-col.highlight .model-label { color: var(--orange); }
+
+  .model-col-head .model-name {
+    font-size: 10pt;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; /* single stack */
+    font-weight: 600;
+    color: var(--ink);
+  }
+
+  .model-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--rule);
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .model-row:last-child { border-bottom: none; }
+
+  .model-cell {
+    background: var(--lifted);
+    padding: 10px 16px;
+  }
+
+  .model-cell.highlight { background: var(--cream); }
+
+  .model-cell .row-label {
+    font-size: 7pt;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--light-gray);
+    margin-bottom: 3px;
+  }
+
+  .model-cell .row-val {
+    font-size: 9pt;
+    color: var(--charcoal);
+    line-height: 1.45;
+  }
+
+  .model-cell.highlight .row-val { color: var(--ink); }
+
+  /* ── Checklist ── */
+  .checklist {
+    list-style: none;
+    margin-top: 16px;
+  }
+
+  .checklist li {
+    padding: 14px 0;
+    border-bottom: 1px solid var(--rule);
+    display: grid;
+    grid-template-columns: 40px 1fr;
+    align-items: start;
+  }
+
+  .checklist li:first-child { border-top: 1px solid var(--rule); }
+
+  .check-num {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; /* single stack */
+    font-size: 14pt;
+    font-weight: 700;
+    color: var(--rule);
+    line-height: 1;
+    padding-top: 2px;
+  }
+
+  .check-body strong {
+    display: block;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; /* single stack */
+    font-size: 9pt;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 4px;
+    letter-spacing: 0.01em;
+  }
+
+  .check-body p {
+    font-size: 10.5pt;
+    color: var(--mid-gray);
+    margin: 0;
+    line-height: 1.6;
+    max-width: none;
+  }
+
+  /* ── Pull quote ── */
+  .pull-quote {
+    margin: 24px 0 8px;
+    padding: 20px 24px;
+    background: var(--ink);
+    position: relative;
+  }
+
+  .pull-quote p {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-style: italic;
+    font-size: 14.5pt;
+    color: var(--cream);
+    line-height: 1.45;
+    max-width: none;
+    margin: 0;
+  }
+
+  .pull-quote-source {
+    font-size: 7.5pt;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; /* single stack */
+    font-style: normal;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--light-gray);
+    margin-top: 10px;
+  }
+
+  /* ── Footer ── */
+  .doc-footer {
+    background: var(--ink);
+    padding: 16px 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 2.5px solid var(--orange);
+  }
+
+  .footer-left .footer-brand {
+    font-size: 9pt;
+    font-weight: 600;
+    color: #fff;
+    letter-spacing: 0.04em;
+  }
+
+  .footer-left .footer-sub {
+    font-size: 7.5pt;
+    color: var(--light-gray);
+    margin-top: 2px;
+  }
+
+  .footer-url {
+    font-size: 9pt;
+    color: var(--orange);
+    font-weight: 500;
+    letter-spacing: 0.03em;
+  }
+
+  /* ── Print ── */
+  @media print {
+    html { font-size: 10pt; }
+    body { background: white; }
+    .page { margin: 0; width: 100%; }
+    .section { page-break-inside: avoid; }
+    .model-compare { page-break-inside: avoid; }
+    .checklist li { page-break-inside: avoid; }
+    .pull-quote { page-break-inside: avoid; }
+  }
+
+  @page { size: A4; margin: 0; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header class="doc-header">
+    <img src="assets/sx2 logo white.png" alt="SX2 PayTech" class="brand-logo">
+    <div class="doc-type">Operator Brief / 2026</div>
+  </header>
+
+  <!-- Cover -->
+  <div class="cover">
+    <div class="cover-left">
+      <div class="cover-identity">
+        <img src="assets/sx2 logo white.png" alt="SX2 PayTech" class="cover-logo-img">
+        <div class="cover-eyebrow">Built for Canadian Gaming Operators</div>
+      </div>
+      <h1>The Cost of Revenue Sharing</h1>
+      <p class="cover-sub">What Canadian casino operators are actually paying for cash advance, and what a transition to the operator-owned model looks like in practice.</p>
+      <div class="cover-meta">
+        <div class="cover-meta-item">Published by <span>SX2 PayTech</span></div>
+        <div class="cover-meta-item">Audience <span>CFOs / Operations</span></div>
+        <div class="cover-meta-item">Market <span>Canada</span></div>
+      </div>
+    </div>
+    <div class="cover-figure">
+      <div class="cover-figure-num">$900K</div>
+      <div class="cover-figure-unit">over 5 years</div>
+      <div class="cover-figure-label">Estimated vendor fees at a single mid-size property over five years, at 1.5% revenue share on $1M/month.</div>
+    </div>
+  </div>
+
+  <div class="doc-body">
+
+    <!-- 01 -->
+    <div class="section">
+      <div class="section-label">
+        <span class="section-num">01</span>
+        <div class="section-rule"></div>
+      </div>
+      <h2>The Model Most Operators Have Never Questioned</h2>
+      <p>Cash advance on the gaming floor has operated on a revenue-share model for decades. The vendor supplies the hardware, processes the transactions, and takes a percentage of every dollar advanced. The operator gets a service. The vendor gets a cut.</p>
+      <p>For many operators, this arrangement was inherited, not chosen. It was the default when the property opened. The contract auto-renewed. The fees became a line item no one looked at too closely.</p>
+      <p>That is worth looking at more closely.</p>
+    </div>
+
+    <!-- 02 -->
+    <div class="section">
+      <div class="section-label">
+        <span class="section-num">02</span>
+        <div class="section-rule"></div>
+      </div>
+      <h2>How the Math Compounds</h2>
+      <p>Revenue-share rates vary by contract. Consider a straightforward example: a mid-size gaming property processing $1 million in cash advances per month, with a vendor earning 1.5% of gross transaction volume, pays approximately $15,000 per month (roughly $180,000 per year) to the vendor.</p>
+      <p>If patron volume increases, as operators work to ensure it does, so does the vendor's take. Automatically. Without any change in the service delivered.</p>
+
+      <!-- SVG Chart -->
+      <div class="chart-wrap">
+        <div class="chart-title">Cumulative vendor fees over five years &nbsp;/ &nbsp;Revenue-share model vs. flat licence fee (illustrative)</div>
+        <svg viewBox="0 0 540 190" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;">
+          <defs>
+            <pattern id="hatch" patternUnits="userSpaceOnUse" width="5" height="5" patternTransform="rotate(45)">
+              <line x1="0" y1="0" x2="0" y2="5" stroke="#F37338" stroke-width="1.5" stroke-opacity="0.35"/>
+            </pattern>
+          </defs>
+
+          <!-- Baseline -->
+          <line x1="30" y1="155" x2="530" y2="155" stroke="#D8D4D0" stroke-width="1"/>
+
+          <!-- Bars: revenue share cumulative -->
+          <!-- Y1 $360K: height = 360/1800*120 = 24px -->
+          <rect x="55"  y="131" width="52" height="24"  fill="#F37338"/>
+          <!-- Y2 $720K: height = 48px -->
+          <rect x="155" y="107" width="52" height="48"  fill="#F37338"/>
+          <!-- Y3 $1080K: height = 72px -->
+          <rect x="255" y="83"  width="52" height="72"  fill="#F37338"/>
+          <!-- Y4 $1440K: height = 96px -->
+          <rect x="355" y="59"  width="52" height="96"  fill="#F37338"/>
+          <!-- Y5 $1800K: height = 120px -->
+          <rect x="455" y="35"  width="52" height="120" fill="#F37338"/>
+
+          <!-- Flat licence fee line (illustrative ~$300K cumulative at yr5 = 300/1800*120=20px above baseline = y=135) -->
+          <!-- Points: (55,152) (155,149) (255,146) (355,143) (455,140) (507,138) -->
+          <polyline
+            points="81,151 181,148 281,145 381,142 481,139"
+            fill="none"
+            stroke="#696969"
+            stroke-width="1.5"
+            stroke-dasharray="4 3"
+          />
+          <!-- Dots on line -->
+          <circle cx="81"  cy="151" r="2.5" fill="#696969"/>
+          <circle cx="181" cy="148" r="2.5" fill="#696969"/>
+          <circle cx="281" cy="145" r="2.5" fill="#696969"/>
+          <circle cx="381" cy="142" r="2.5" fill="#696969"/>
+          <circle cx="481" cy="139" r="2.5" fill="#696969"/>
+
+          <!-- Value labels above bars -->
+          <text x="81"  y="126" text-anchor="middle" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="7" fill="#F37338" font-weight="600">$180K</text>
+          <text x="181" y="102" text-anchor="middle" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="7" fill="#F37338" font-weight="600">$360K</text>
+          <text x="281" y="78"  text-anchor="middle" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="7" fill="#F37338" font-weight="600">$540K</text>
+          <text x="381" y="54"  text-anchor="middle" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="7" fill="#F37338" font-weight="600">$720K</text>
+          <text x="481" y="30"  text-anchor="middle" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="7" fill="#F37338" font-weight="600">$900K</text>
+
+          <!-- Year labels -->
+          <text x="81"  y="168" text-anchor="middle" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="7.5" fill="#9A9690">Year 1</text>
+          <text x="181" y="168" text-anchor="middle" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="7.5" fill="#9A9690">Year 2</text>
+          <text x="281" y="168" text-anchor="middle" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="7.5" fill="#9A9690">Year 3</text>
+          <text x="381" y="168" text-anchor="middle" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="7.5" fill="#9A9690">Year 4</text>
+          <text x="481" y="168" text-anchor="middle" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="7.5" fill="#9A9690">Year 5</text>
+
+          <!-- Legend -->
+          <rect x="30" y="178" width="10" height="7" fill="#F37338"/>
+          <text x="44" y="185" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="7" fill="#696969">Revenue-share model (cumulative vendor fees)</text>
+          <line x1="250" y1="181" x2="262" y2="181" stroke="#696969" stroke-width="1.5" stroke-dasharray="4 3"/>
+          <circle cx="256" cy="181" r="2" fill="#696969"/>
+          <text x="267" y="185" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="7" fill="#696969">Flat licence fee (illustrative)</text>
+        </svg>
+        <p class="chart-note">Based on $1M/month transaction volume at 1.5% revenue-share rate, with no volume growth applied. Flat licence fee line is illustrative only.</p>
+      </div>
+    </div>
+
+    <!-- 03 -->
+    <div class="section">
+      <div class="section-label">
+        <span class="section-num">03</span>
+        <div class="section-rule"></div>
+      </div>
+      <h2>What the Contract Actually Says</h2>
+      <p>Long-term contracts are standard in the revenue-share space, and that is not coincidental. A multi-year term with auto-renewal provisions and meaningful switching costs creates a structure where the operator has limited leverage at renewal.</p>
+      <p>Feature requests are common. Feature delivery is less common. Price increases are absorbed because evaluating alternatives requires operational disruption most properties prefer to avoid.</p>
+      <p>The result is a vendor relationship that is more durable than it is competitive.</p>
+    </div>
+
+    <!-- 04 -->
+    <div class="section">
+      <div class="section-label">
+        <span class="section-num">04</span>
+        <div class="section-rule"></div>
+      </div>
+      <h2>The Compliance Layer</h2>
+      <p>Canadian gaming operators are subject to FINTRAC reporting obligations, provincial regulatory requirements, and increasing scrutiny on AML controls at the cage. Most legacy cash advance systems were not built with these requirements as a primary design concern. They were retrofitted over time.</p>
+      <p>When a regulator asks for transaction data, reconciliation records, or reporting documentation, the operator should be able to produce it without waiting for a vendor to generate a report on their schedule. That dependency is a compliance exposure that most operators have not formally assessed.</p>
+    </div>
+
+    <!-- 05 -->
+    <div class="section">
+      <div class="section-label">
+        <span class="section-num">05</span>
+        <div class="section-rule"></div>
+      </div>
+      <h2>The Operator-Owned Alternative</h2>
+      <p>A software licence model works differently. The operator pays a flat monthly fee for the platform, transactions process through the operator's own merchant account, and settlement goes directly to the casino's bank account.</p>
+
+      <!-- Model comparison table -->
+      <div class="model-compare" style="margin-top:20px;">
+        <div class="model-col">
+          <div class="model-col-head">
+            <div class="model-label">Current standard</div>
+            <div class="model-name">Revenue Share</div>
+          </div>
+        </div>
+        <div class="model-col highlight">
+          <div class="model-col-head">
+            <div class="model-label">Operator-owned model</div>
+            <div class="model-name">Flat Licence Fee</div>
+          </div>
+        </div>
+
+        <div class="model-cell">
+          <div class="row-label">Monthly cost</div>
+          <div class="row-val">% of every transaction processed</div>
+        </div>
+        <div class="model-cell highlight">
+          <div class="row-label">Monthly cost</div>
+          <div class="row-val">Fixed fee, regardless of volume</div>
+        </div>
+
+        <div class="model-cell">
+          <div class="row-label">As patron volume grows</div>
+          <div class="row-val">Vendor fees increase automatically</div>
+        </div>
+        <div class="model-cell highlight">
+          <div class="row-label">As patron volume grows</div>
+          <div class="row-val">Revenue stays with the property</div>
+        </div>
+
+        <div class="model-cell">
+          <div class="row-label">Merchant account</div>
+          <div class="row-val">Vendor holds the relationship</div>
+        </div>
+        <div class="model-cell highlight">
+          <div class="row-label">Merchant account</div>
+          <div class="row-val">Operator-owned</div>
+        </div>
+
+        <div class="model-cell">
+          <div class="row-label">Settlement</div>
+          <div class="row-val">Delayed, routed through vendor</div>
+        </div>
+        <div class="model-cell highlight">
+          <div class="row-label">Settlement</div>
+          <div class="row-val">Direct to casino bank account</div>
+        </div>
+
+        <div class="model-cell">
+          <div class="row-label">Reporting access</div>
+          <div class="row-val">Vendor-generated, on their schedule</div>
+        </div>
+        <div class="model-cell highlight">
+          <div class="row-label">Reporting access</div>
+          <div class="row-val">Real-time, operator-controlled</div>
+        </div>
+
+        <div class="model-cell">
+          <div class="row-label">Contract leverage</div>
+          <div class="row-val">Limited at renewal</div>
+        </div>
+        <div class="model-cell highlight">
+          <div class="row-label">Contract leverage</div>
+          <div class="row-val">Renewed on performance</div>
+        </div>
+      </div>
+
+      <p style="margin-top:16px;">This is not a new concept in enterprise software. It is the standard model for virtually every other operational system a casino runs: property management, surveillance, loyalty, food and beverage. Cash advance has been the exception. There is no structural reason it needs to remain one.</p>
+    </div>
+
+    <!-- 06 -->
+    <div class="section">
+      <div class="section-label">
+        <span class="section-num">06</span>
+        <div class="section-rule"></div>
+      </div>
+      <h2>What to Evaluate Before a Transition</h2>
+
+      <ul class="checklist">
+        <li>
+          <div class="check-num">1</div>
+          <div class="check-body">
+            <strong>True cost of the current arrangement</strong>
+            <p>Calculate gross transaction volume multiplied by the vendor's effective rate. Include waived fees, promotional periods, and any volume-based escalators in the contract. The number is often larger than the accounts payable line suggests.</p>
+          </div>
+        </li>
+        <li>
+          <div class="check-num">2</div>
+          <div class="check-body">
+            <strong>Contract terms and exit provisions</strong>
+            <p>Understand the remaining term, any early termination clauses, and the notice period for non-renewal. Many auto-renewal windows are short and easy to miss.</p>
+          </div>
+        </li>
+        <li>
+          <div class="check-num">3</div>
+          <div class="check-body">
+            <strong>Integration requirements</strong>
+            <p>A replacement platform needs to connect to the existing gateway, acquirer relationship, EMV PIN pad hardware, ID scanners, and receipt printers. Confirm compatibility before committing to a transition timeline.</p>
+          </div>
+        </li>
+        <li>
+          <div class="check-num">4</div>
+          <div class="check-body">
+            <strong>Compliance continuity</strong>
+            <p>FINTRAC reporting, patron transaction records, and provincial compliance controls need to carry over without a gap. The platform should support these natively, not through manual workarounds.</p>
+          </div>
+        </li>
+        <li>
+          <div class="check-num">5</div>
+          <div class="check-body">
+            <strong>Operational disruption</strong>
+            <p>Staff training, kiosk changeover, and cage workflow adjustments are manageable with the right implementation support. The transition period is finite. The savings from a flat-fee model are ongoing.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- 07 -->
+    <div class="section">
+      <div class="section-label">
+        <span class="section-num">07</span>
+        <div class="section-rule"></div>
+      </div>
+      <h2>A Final Note</h2>
+
+      <div class="pull-quote">
+        <p>Every operator should know what they are paying and whether that arrangement still reflects fair market value.</p>
+        <div class="pull-quote-source">SX2 PayTech / Operator Brief 2026</div>
+      </div>
+
+      <p style="margin-top:18px;">This paper is not an argument that every operator should switch vendors immediately. It is an argument that every operator should run the numbers.</p>
+      <p>The revenue-share model was built at a time when the vendor was providing capital, taking on transaction risk, and operating in a less competitive market. Those conditions have changed. The contracts have not always changed with them.</p>
+      <p>The calculation is straightforward. What you do with it is an operational decision.</p>
+    </div>
+
+  </div>
+
+  <footer class="doc-footer">
+    <div class="footer-left">
+      <div class="footer-brand">SX2 PayTech</div>
+      <div class="footer-sub">Casino cash access software for Canadian gaming operators. Built and hosted in Canada. PCI DSS compliant. FINTRAC ready.</div>
+    </div>
+    <div class="footer-url">sx2paytech.com</div>
+  </footer>
+
+</div>
+</body>
+</html>
