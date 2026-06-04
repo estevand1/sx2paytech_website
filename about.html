@@ -113,15 +113,14 @@ img { display: block; max-width: 100%; }
   border: 1px solid rgba(199,199,192,.4); border-radius: var(--r-full);
   box-shadow: var(--sh-md); z-index: 100;
   display: flex; align-items: center; justify-content: space-between;
-  padding: 12px 28px; transition: box-shadow .3s;
+  padding: 10px 28px; transition: box-shadow .3s;
 }
 .nav.scrolled { box-shadow: 0 8px 32px rgba(0,0,0,.14); }
 .nav-logo {
-  font-size: 17px; font-weight: 800; letter-spacing: -.03em;
-  color: var(--ink); text-decoration: none; flex-shrink: 0;
-  white-space: nowrap;
+  display: flex; align-items: center; flex-shrink: 0;
+  text-decoration: none;
 }
-.nav-logo span { color: var(--signal); }
+.nav-logo-img { height: 40px; width: auto; display: block; }
 .nav-links { display:flex; gap:28px; list-style:none; }
 .nav-links a { color: var(--slate); text-decoration:none; font-size:14px; font-weight:500; transition:color .2s; }
 .nav-links a:hover { color: var(--signal); }
@@ -433,7 +432,9 @@ img { display: block; max-width: 100%; }
 
 <!-- Nav -->
 <nav class="nav" id="nav" aria-label="Main navigation">
-  <a href="index.html" class="nav-logo">SX2 <span>PayTech</span></a>
+  <a href="index.html" class="nav-logo">
+    <img src="assets/SX2 logo.png" alt="SX2 PayTech" class="nav-logo-img">
+  </a>
   <ul class="nav-links">
     <li><a href="index.html#platform">Platform</a></li>
     <li><a href="index.html#how-it-works">How It Works</a></li>
