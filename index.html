@@ -497,7 +497,16 @@ img { display: block; max-width: 100%; }
 }
 
 /* ─── PROBLEM (dark section) ─────────────────────────────── */
-.problem-section { background:var(--ink); }
+.problem-section { background:var(--ink); position:relative; overflow:hidden; }
+.problem-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  mix-blend-mode: screen;
+  opacity: .4;
+}
 .problem-sub { color:rgba(255,255,255,.5); max-width:620px; margin-bottom:48px; }
 .problem-grid { display:grid; grid-template-columns:1fr; gap:16px; }
 @media(min-width:640px) { .problem-grid { grid-template-columns:repeat(3,1fr); } }
@@ -819,6 +828,35 @@ details[open] > .faq-summary .faq-icon { transform: rotate(45deg); }
 @media (prefers-reduced-motion: reduce) {
   .grad-blob { animation: none !important; }
 }
+
+/* ─── Word-appear animation ──────────────────────────────── */
+@keyframes word-appear {
+  0%   { opacity: 0; transform: translateY(28px) scale(0.82); filter: blur(10px); }
+  55%  { opacity: 0.9; transform: translateY(4px) scale(0.98); filter: blur(1px); }
+  100% { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
+}
+.word-animate {
+  display: inline-block;
+  opacity: 0;
+}
+/* Hero text enters via word animation — no container fade needed */
+.hero-min-inner { animation: none; }
+/* Stagger the non-text hero elements in after words appear */
+.hero-actions {
+  opacity: 0;
+  animation: fade-up .55s cubic-bezier(.16,1,.3,1) 1.15s both;
+}
+.hero-stats {
+  opacity: 0;
+  animation: fade-up .55s cubic-bezier(.16,1,.3,1) 1.35s both;
+}
+/* Suppress old title-bounce when text is already split into word spans */
+[data-words-split][data-reveal~="title"] { transition: none; }
+[data-words-split][data-reveal~="title"].in { animation: none; opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  .word-animate { opacity: 1 !important; animation: none !important; }
+  .hero-actions, .hero-stats { opacity: 1; animation: none; }
+}
 </style>
 </head>
 <body>
@@ -963,6 +1001,7 @@ details[open] > .faq-summary .faq-icon { transform: rotate(45deg); }
 
   <!-- THE PROBLEM -->
   <section class="section problem-section" aria-labelledby="problem-heading">
+    <canvas class="problem-canvas" id="problem-canvas" aria-hidden="true"></canvas>
     <div class="wrap">
       <div class="sec-head">
         <p class="t-eyebrow sec-eyebrow eyebrow-signal" data-reveal>The status quo</p>
@@ -1501,6 +1540,51 @@ document.querySelectorAll('[data-reveal]').forEach(el => obs.observe(el));
   window.addEventListener('resize', function() { setSize(); init(); }, { passive: true });
 })();
 
+// Problem section particle animation
+(function() {
+  const canvas = document.getElementById('problem-canvas');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  let particles = [], raf = 0;
+
+  function setSize() {
+    canvas.width = canvas.offsetWidth;
+    canvas.height = canvas.offsetHeight;
+  }
+  function count() { return Math.floor((canvas.width * canvas.height) / 3500); }
+  function make() {
+    return { x: Math.random() * canvas.width, y: Math.random() * canvas.height,
+      speed: Math.random() / 5 + 0.1,
+      baseOpacity: Math.random() * 0.5 + 0.5,
+      twinklePhase: Math.random() * Math.PI * 2,
+      twinkleSpeed: Math.random() * 0.06 + 0.02,
+      size: Math.random() * 2.5 + 1 };
+  }
+  function reset(p) {
+    p.x = Math.random() * canvas.width; p.y = canvas.height + p.size;
+    p.speed = Math.random() / 5 + 0.1;
+    p.baseOpacity = Math.random() * 0.5 + 0.5;
+    p.twinklePhase = Math.random() * Math.PI * 2;
+    p.twinkleSpeed = Math.random() * 0.06 + 0.02;
+    p.size = Math.random() * 2.5 + 1;
+  }
+  function init() { particles = []; for (let i = 0; i < count(); i++) particles.push(make()); }
+  function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    particles.forEach(function(p) {
+      p.y -= p.speed;
+      if (p.y < 0) reset(p);
+      p.twinklePhase += p.twinkleSpeed;
+      const opacity = p.baseOpacity * (0.4 + 0.6 * Math.abs(Math.sin(p.twinklePhase)));
+      ctx.fillStyle = 'rgba(250,250,250,' + opacity + ')';
+      ctx.fillRect(p.x, p.y, 1, p.size);
+    });
+    raf = requestAnimationFrame(draw);
+  }
+  setSize(); init(); raf = requestAnimationFrame(draw);
+  window.addEventListener('resize', function() { setSize(); init(); }, { passive: true });
+})();
+
 // Hero gradient pointer tracking
 (function() {
   var hero = document.querySelector('.hero-min');
@@ -1535,6 +1619,73 @@ document.querySelectorAll('[data-reveal]').forEach(el => obs.observe(el));
       active = false;
     }
   }
+})();
+
+// Word-appear animation for hero text + section titles
+(function() {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  function splitWords(el) {
+    var text = el.textContent || '';
+    var parts = text.split(/(\s+)/);
+    el.innerHTML = parts.map(function(part) {
+      return part.trim()
+        ? '<span class="word-animate">' + part + '</span>'
+        : part;
+    }).join('');
+    return el.querySelectorAll('.word-animate');
+  }
+
+  function animateWords(words, baseDelay, stagger) {
+    Array.prototype.forEach.call(words, function(word, i) {
+      setTimeout(function() {
+        word.style.animation = 'word-appear 0.8s ease-out forwards';
+      }, baseDelay + i * stagger);
+    });
+  }
+
+  // ── Hero text ────────────────────────────────────────────
+  var kicker = document.querySelector('.hero-min-kicker');
+  var title  = document.querySelector('.hero-min-title');
+  var sub    = document.querySelector('.hero-min-sub');
+  var delay  = 150;
+
+  if (kicker) {
+    var kw = splitWords(kicker);
+    animateWords(kw, delay, 90);
+    delay += kw.length * 90 + 100;
+  }
+  if (title) {
+    var tw = splitWords(title);
+    animateWords(tw, delay, 85);
+    delay += tw.length * 85 + 120;
+  }
+  if (sub) {
+    var sw = splitWords(sub);
+    animateWords(sw, delay, 42);
+  }
+
+  // ── Section titles ───────────────────────────────────────
+  var titleEls = document.querySelectorAll('[data-reveal~="title"]');
+  titleEls.forEach(function(el) {
+    el.setAttribute('data-words-split', '');
+    splitWords(el);
+  });
+
+  var titleObs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (!entry.isIntersecting) return;
+      titleObs.unobserve(entry.target);
+      var words = entry.target.querySelectorAll('.word-animate');
+      Array.prototype.forEach.call(words, function(word, i) {
+        setTimeout(function() {
+          word.style.animation = 'word-appear 0.8s ease-out forwards';
+        }, i * 80);
+      });
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -24px 0px' });
+
+  titleEls.forEach(function(el) { titleObs.observe(el); });
 })();
 </script>
 
