@@ -230,15 +230,14 @@ img { display: block; max-width: 100%; }
   border: 1px solid rgba(199,199,192,.4); border-radius: var(--r-full);
   box-shadow: var(--sh-md); z-index: 100;
   display: flex; align-items: center; justify-content: space-between;
-  padding: 12px 28px; transition: box-shadow .3s;
+  padding: 10px 28px; transition: box-shadow .3s;
 }
 .nav.scrolled { box-shadow: 0 8px 32px rgba(0,0,0,.14); }
 .nav-logo {
-  font-size: 17px; font-weight: 800; letter-spacing: -.03em;
-  color: var(--ink); text-decoration: none; flex-shrink: 0;
-  white-space: nowrap;
+  display: flex; align-items: center; flex-shrink: 0;
+  text-decoration: none;
 }
-.nav-logo span { color: var(--signal); }
+.nav-logo-img { height: 40px; width: auto; display: block; }
 .nav-links { display:flex; gap:28px; list-style:none; }
 .nav-links a { color: var(--slate); text-decoration:none; font-size:14px; font-weight:500; transition:color .2s; }
 .nav-links a:hover { color: var(--signal); }
@@ -853,9 +852,22 @@ details[open] > .faq-summary .faq-icon { transform: rotate(45deg); }
 /* Suppress old title-bounce when text is already split into word spans */
 [data-words-split][data-reveal~="title"] { transition: none; }
 [data-words-split][data-reveal~="title"].in { animation: none; opacity: 1; transform: none; }
+/* ── Mobile trust badge float-in ─────────────────────────── */
+@media (max-width: 768px) {
+  /* Container reveals instantly so items drive the entrance */
+  .trust-items[data-reveal] { opacity: 1 !important; transform: none !important; transition: none !important; }
+  .trust-items .trust-item { opacity: 0; }
+  .trust-items.in .trust-item { animation: word-appear 0.75s ease-out forwards; }
+  .trust-items.in .trust-item:nth-child(1) { animation-delay:   0ms; }
+  .trust-items.in .trust-item:nth-child(2) { animation-delay: 110ms; }
+  .trust-items.in .trust-item:nth-child(3) { animation-delay: 220ms; }
+  .trust-items.in .trust-item:nth-child(4) { animation-delay: 330ms; }
+  .trust-items.in .trust-item:nth-child(5) { animation-delay: 440ms; }
+}
 @media (prefers-reduced-motion: reduce) {
   .word-animate { opacity: 1 !important; animation: none !important; }
   .hero-actions, .hero-stats { opacity: 1; animation: none; }
+  .trust-items .trust-item { opacity: 1 !important; animation: none !important; }
 }
 </style>
 </head>
@@ -878,7 +890,9 @@ details[open] > .faq-summary .faq-icon { transform: rotate(45deg); }
 
 <!-- Nav -->
 <nav class="nav" id="nav" aria-label="Main navigation">
-  <a href="/" class="nav-logo">SX2 <span>PayTech</span></a>
+  <a href="/" class="nav-logo">
+    <img src="assets/SX2 logo.png" alt="SX2 PayTech" class="nav-logo-img">
+  </a>
   <ul class="nav-links">
     <li><a href="#platform">Platform</a></li>
     <li><a href="#how-it-works">How It Works</a></li>
